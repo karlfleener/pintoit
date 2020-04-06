@@ -6,6 +6,7 @@ class CreateBoards < ActiveRecord::Migration[5.2]
       t.integer :creator_id, null: false
 
       t.index :title, unique: true
+      t.index :creator_id
       t.timestamps
     end
   end
