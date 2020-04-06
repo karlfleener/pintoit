@@ -5,6 +5,8 @@ class CreatePins < ActiveRecord::Migration[5.2]
       t.string :description, null: false
       t.integer :creator_id, null: false
 
+      t.index :title
+      t.index :creator_id
       t.timestamps
     end
   end

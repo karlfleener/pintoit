@@ -5,6 +5,8 @@ class CreateFollows < ActiveRecord::Migration[5.2]
       t.integer :followed_id, null: false
       t.string :followed_type, null: false
 
+      t.index :follower_id
+      t.index :followed_id
       t.timestamps
     end
   end
