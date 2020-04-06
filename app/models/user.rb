@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  username        :string           not null
 #  email           :string           not null
 #  age             :integer          not null
 #  password_digest :string           not null
@@ -15,9 +14,14 @@ class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :age, :password_digest, presence: true
   validates :password, length: { minimum: 8 }, allow_nil: true
-  
+
   after_initialize :ensure_session_token
   attr_reader :password
+
+  has_many :boards
+  has_many :pins
+  has_many :followers
+  has_many :following
 
   def self.find_by_credentials(email, password)
       user = User.find_by(email: email)
