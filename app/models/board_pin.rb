@@ -9,4 +9,6 @@
 #  updated_at :datetime         not null
 #
 class BoardPin < ApplicationRecord
+  belongs_to :board
+  belongs_to :pin
 end
