@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-class Login extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -21,9 +21,9 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(null, (err) => {
-        this.setState({ errors: this.renderErrors() })
-      });
+      // .then(null, (err) => {
+      //   this.setState({ errors: this.renderErrors() })
+      // });
   }
 
   demoLogin(e) {
@@ -111,7 +111,7 @@ class Login extends React.Component {
 
               <p> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></p>
 
-              <Link to='/login'>Already a member? Log in</Link>
+              <Link to='/signup'>Not on Pinterest yet? Sign up</Link>
 
             </form>
           </div>
@@ -135,4 +135,4 @@ class Login extends React.Component {
   }
 };
 
-export default Login;
+export default LoginForm;
