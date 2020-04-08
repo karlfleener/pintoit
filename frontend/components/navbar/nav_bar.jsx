@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, logout }) => {
 
-  // const display = currentUser ? (
-  //   <div>
-  //     <p>{currentUser.email}</p>
-  //     <button onClick={logout}>Log out</button>
-  //   </div>
-  // ) : (
-  //   <div>
-  //     <Link className="btn" to="/signup">Sign up</Link>
-  //     <Link className="btn" to="/login">Log in</Link>
-  //   </div>
-  // )
-  // from benchbnb
+  const display = currentUser ? (
+    <div>
+      <p>{currentUser.email}</p>
+      <button onClick={logout}>Log out</button>
+    </div>
+  ) : (
+    <div>
+      <Link className="btn" to="/signup">Sign up</Link>
+      <Link className="btn" to="/login">Log in</Link>
+    </div>
+  )
+  
 
   return (
     <header className='nav-container'>
