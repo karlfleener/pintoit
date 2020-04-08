@@ -9,6 +9,11 @@
 #  updated_at :datetime         not null
 #
 class BoardPin < ApplicationRecord
-  belongs_to :board
-  belongs_to :pin
+  belongs_to :board,
+    foreign_key: :board_id,
+    class_name: :Board
+
+  belongs_to :pin,
+    foreign_key: :pin_id,
+    class_name: :Pin
 end

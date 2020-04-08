@@ -27,26 +27,25 @@ class Signup extends React.Component {
   }
 
   renderErrors() {
-    let blankEmailError = [];
-    let invalidEmailFormatError = [];
+    let emptyEmailError = [];
+    let invalidEmailError = [];
     let emailTakenError = [];
     let passwordError = [];
     let ageError = [];
 
-    function validEmail(email) {
-      let re = /\S+@\S+\.\S+/;
-      return re.test(email);
+    function emailIsValid(email) {
+      return /\S+@\S+\.\S+/.test(email);
     }
 
     if (this.props.errors.includes("Email can't be blank")) {
-      blankEmailError.push("You missed a spot! Don’t forget to add your email.");
-      return blankEmailError;
+      emptyEmailError.push("You missed a spot! Don’t forget to add your email.");
+      return emptyEmailError;
     } else if (this.props.errors.includes("Email has already been taken")) {
       emailTakenError.push("Please use a different email.");
       return emailTakenError;
-    } else if (!validEmail(this.state.email)) {
-      invalidEmailFormatError.push("Hmm...that doesn't look like an email address.");
-      return invalidEmailFormatError;
+    } else if (!emailIsValid(this.state.email)) {
+      invalidEmailError.push("Hmm...that doesn't look like an email address.");
+      return invalidEmailError;
     } else if (this.props.errors.includes("Password is too short (minimum is 6 characters)")) {
       passwordError.push("Your password is too short! You need 6+ characters.");
       return passwordError;
@@ -84,12 +83,12 @@ class Signup extends React.Component {
 
     return (
      <div className='session-container'>
-      <button className="session-top-button"><Link to='/login'>Log in</Link></button>
+      <button id="session-side-button"><Link to='/login'>Log in</Link></button>
         
-        <div className='session-box-container'>
+        <div className='session-form-container'>
 
-          <div className='session-box'>
-            <img src="" alt="Pintoit Logo"/> //Fill img src later
+          <div>
+            <img src={window.logo} alt="Pintoit Logo"/> 
             <h1>Welcome to Pintoit</h1>
             <h3>Find new ideas to try</h3>
 

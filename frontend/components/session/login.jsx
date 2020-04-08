@@ -28,27 +28,26 @@ class Login extends React.Component {
 
   demoLogin(e) {
     e.preventDefault();
-    this.props.login({ email: 'userdemo@demo.com', password: 'password' })
+    this.props.login({ email: 'userdemo@gmail.com', password: 'password123' })
   }
 
   renderErrors() {
-    let blankEmailError = [];
-    let invalidEmailFormatError = [];
+    let emptyEmailError = [];
+    let invalidEmailError = [];
     let passwordError = [];
 
-    function validEmail(email) {
-      let re = /\S+@\S+\.\S+/;
-      return re.test(email);
+    function emailIsValid(email) {
+      return /\S+@\S+\.\S+/.test(email);
     }
 
     if (this.props.errors.includes("Invalid email or password.")) {
 
       if (this.state.email === '') {
-        blankEmailError.push("You missed a spot! Don’t forget to add your email.")
-        return blankEmailError;
-      } else if (!validEmail(this.state.email)) {
-        invalidEmailFormatError.push("Hmm...that doesn't look like an email address.")
-        return invalidEmailFormatError;
+        emptyEmailError.push("You missed a spot! Don’t forget to add your email.")
+        return emptyEmailError;
+      } else if (!emailIsValid(this.state.email)) {
+        invalidEmailError.push("Hmm...that doesn't look like an email address.")
+        return invalidEmailError;
       } else { 
         passwordError.push("The password you entered is incorrect. Try again")
       } return passwordError;
@@ -74,12 +73,12 @@ class Login extends React.Component {
 
     return (
       <div className='session-container'>
-        <button className="session-top-button"><Link to='/signup'>Sign up</Link></button>
+        <button id="session-side-button"><Link to='/signup'>Sign up</Link></button>
 
-        <div className='session-box-container'>
+        <div className='session-form-container'>
 
-          <div className='session-box'>
-            <img src="" alt="Pintoit Logo" /> //Fill img src later
+          <div>
+            <img src={window.logo} alt="Pintoit Logo" /> 
             <h1>Welcome to Pintoit</h1>
 
             <form onSubmit={this.handleSubmit} className='session-form'>
@@ -113,7 +112,7 @@ class Login extends React.Component {
               <p> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></p>
 
               <Link to='/login'>Already a member? Log in</Link>
-              
+
             </form>
           </div>
 
