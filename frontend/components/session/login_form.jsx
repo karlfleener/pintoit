@@ -38,29 +38,39 @@ class LoginForm extends React.Component {
       return /\S+@\S+\.\S+/.test(email);
     }
 
-    if (this.props.errors[0].includes("Invalid email or password.")) {
-
+    if (this.props.errors.includes("Invalid email or password")) {
+        debugger
       if (this.state.email === '') {
-        error.push("You missed a spot! Don’t forget to add your email.")
-        return error
-      } else if (!emailIsValid(this.state.email)) {
-        error.push("Hmm...that doesn't look like an email address.")
+        error.push("You missed a spot! Don’t forget to add your email.");
+        debugger
         return error;
-      } else { 
-        error.push("The password you entered is incorrect. Try again")
-      } return error;
+      } else if (!emailIsValid(this.state.email)) {
+        error.push("Hmm...that doesn't look like an email address.");
+        return error;
+      } else {
+        error.push("The password you entered is incorrect. Try again");
+        return error;
+      } 
     }
+
   }
 
   emailErrors() {
     if (this.state.errors[0] === "You missed a spot! Don’t forget to add your email."
-      || this.state.errors[0] === "Hmm...that doesn't look like an email address.") {
-        return this.state.errors;
-      }
+      || this.state.errors[0] === "Hmm...that doesn't look like an email address."
+      || this.state.errors[0] === "Please use a different email.") {
+      return this.state.errors;
+    }
   }
 
   passwordErrors() {
-    if (this.state.errors[0] === "The password you entered is incorrect. Try again") {
+    if (this.state.errors[0] === "Your password is too short! You need 6+ characters.") {
+      return this.state.errors;
+    }
+  }
+
+  ageErrors() {
+    if (this.state.errors[0] === "Help us protect you by providing your age") {
       return this.state.errors;
     }
   }
@@ -105,7 +115,7 @@ class LoginForm extends React.Component {
               />
 
               <button onClick={this.demoLogin} className="demo-login">Demo Log in</button>
-            
+
 
               <p> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></p>
 

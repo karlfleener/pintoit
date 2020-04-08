@@ -35,7 +35,7 @@ const NavBar = ({ currentUser, logout }) => {
 
       <Link to="/"><div className="nav-item">Home</div></Link>
       <Link to="/following"><div className="nav-item">Following</div></Link>
-      <Link to={`/`}><div className="nav-item">{currentUser.email}</div></Link> 
+      <Link to={`/`}><div className="nav-item">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
       <div className='nav-item'><i className="fas fa-comment-dots"></i></div>      
       <div className='nav-item'><i className="fas fa-bell"></i></div>  
       <button className='nav-item' onClick={logout}>Log out</button>                               
