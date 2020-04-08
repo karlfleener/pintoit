@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Root from './components/root'
 import configureStore from './store/store.js'
-import {signup, login, logout} from './util/session'
+import {signup, login, logout} from './util/session_api_util'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.login = login
     window.logout = logout;
   // TESTING
+  
   const root = document.getElementById('root');
   let preloadedState = undefined;
   if (window.currentUser) {
