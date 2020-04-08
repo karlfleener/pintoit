@@ -10,6 +10,19 @@
 #  updated_at  :datetime         not null
 #
 class Board < ApplicationRecord
-  belongs_to :user
-  has_many :pins
+  belongs_to :user,
+    foreign_key: :creator_id,
+    class_name: :User
+
+  has_many :board_pins,
+    foreign_key: :board_id,
+    class_name: :BoardPin
+
+  has_many :pins, 
+  through: :board_pins,
+  source: :pin
+
+  has_many :follows,
+    foreign_key: :followed_id,
+    class_name: :Follow
 end
