@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-class Signup extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,31 +27,27 @@ class Signup extends React.Component {
   }
 
   renderErrors() {
-    let emptyEmailError = [];
-    let invalidEmailError = [];
-    let emailTakenError = [];
-    let passwordError = [];
-    let ageError = [];
+   let error = [];
 
     function emailIsValid(email) {
       return /\S+@\S+\.\S+/.test(email);
     }
 
-    if (this.props.errors.includes("Email can't be blank")) {
-      emptyEmailError.push("You missed a spot! Don’t forget to add your email.");
-      return emptyEmailError;
-    } else if (this.props.errors.includes("Email has already been taken")) {
-      emailTakenError.push("Please use a different email.");
-      return emailTakenError;
+    if (this.props.errors[0].includes("Email can't be blank")) {
+      error.push("You missed a spot! Don’t forget to add your email.");
+      return error;
+    } else if (this.props.errors[0].includes("Email has already been taken")) {
+      error.push("Please use a different email.");
+      return error;
     } else if (!emailIsValid(this.state.email)) {
-      invalidEmailError.push("Hmm...that doesn't look like an email address.");
-      return invalidEmailError;
-    } else if (this.props.errors.includes("Password is too short (minimum is 6 characters)")) {
-      passwordError.push("Your password is too short! You need 6+ characters.");
-      return passwordError;
-    } else if (this.props.errors.includes("Age can't be blank")) {
-      ageError.push("Help us protect you by providing your age");
-      return ageError;
+      error.push("Hmm...that doesn't look like an email address.");
+      return error;
+    } else if (this.props.errors[0].includes("Password is too short (minimum is 6 characters)")) {
+      error.push("Your password is too short! You need 6+ characters.");
+      return error;
+    } else if (this.props.errors[0].includes("Age can't be blank")) {
+      error.push("Help us protect you by providing your age");
+      return error;
     }
 
   }
@@ -152,4 +148,4 @@ class Signup extends React.Component {
   }
 };
 
-export default Signup;
+export default SignupForm;

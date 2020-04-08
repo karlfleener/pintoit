@@ -21,9 +21,9 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      // .then(null, (err) => {
-      //   this.setState({ errors: this.renderErrors() })
-      // });
+      .then(null, (err) => {
+        this.setState({ errors: this.renderErrors() })
+      });
   }
 
   demoLogin(e) {
@@ -32,33 +32,31 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
-    let emptyEmailError = [];
-    let invalidEmailError = [];
-    let passwordError = [];
+    let error = [];
 
     function emailIsValid(email) {
       return /\S+@\S+\.\S+/.test(email);
     }
 
-    if (this.props.errors.includes("Invalid email or password.")) {
+    if (this.props.errors[0].includes("Invalid email or password.")) {
 
       if (this.state.email === '') {
-        emptyEmailError.push("You missed a spot! Don’t forget to add your email.")
-        return emptyEmailError;
+        error.push("You missed a spot! Don’t forget to add your email.")
+        return error
       } else if (!emailIsValid(this.state.email)) {
-        invalidEmailError.push("Hmm...that doesn't look like an email address.")
-        return invalidEmailError;
+        error.push("Hmm...that doesn't look like an email address.")
+        return error;
       } else { 
-        passwordError.push("The password you entered is incorrect. Try again")
-      } return passwordError;
+        error.push("The password you entered is incorrect. Try again")
+      } return error;
     }
   }
 
   emailErrors() {
     if (this.state.errors[0] === "You missed a spot! Don’t forget to add your email."
       || this.state.errors[0] === "Hmm...that doesn't look like an email address.") {
-      return this.state.errors;
-    }
+        return this.state.errors;
+      }
   }
 
   passwordErrors() {
