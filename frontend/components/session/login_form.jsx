@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -21,12 +21,13 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(null, (err) => {
-        this.setState({ errors: this.renderErrors() })
-      });
+    .then(null, (err) => {
+      this.setState({ errors: this.renderErrors() })
+    })
   }
 
   demoLogin(e) {
+    this.props.closeModal();
     e.preventDefault();
     this.props.login({ email: 'userdemo@gmail.com', password: 'password123' })
   }
@@ -39,10 +40,9 @@ class LoginForm extends React.Component {
     }
 
     if (this.props.errors.includes("Invalid email or password")) {
-        debugger
+
       if (this.state.email === '') {
         error.push("You missed a spot! Don’t forget to add your email.");
-        debugger
         return error;
       } else if (!emailIsValid(this.state.email)) {
         error.push("Hmm...that doesn't look like an email address.");
@@ -69,29 +69,25 @@ class LoginForm extends React.Component {
     }
   }
 
-  ageErrors() {
-    if (this.state.errors[0] === "Help us protect you by providing your age") {
-      return this.state.errors;
-    }
-  }
-
   render() {
-    const emailOutline = this.emailErrors() ? 'error-outline' : '';
-    const passwordOutline = this.passwordErrors() ? 'error-outline' : '';
+    const emailOutline = this.emailErrors() ? '-error-outline' : '';
+    const passwordOutline = this.passwordErrors() ? '-error-outline' : '';
 
     return (
       <div className='session-container'>
-        <button id="session-side-button"><Link to='/signup'>Sign up</Link></button>
+        {/* <button id="session-side-button"><Link to='/signup'>Sign up</Link></button> */}
 
         <div className='session-form-container'>
 
-          <div>
-            <img src={window.logo} alt="Pintoit Logo" /> 
-            <h1>Welcome to Pintoit</h1>
-
+          <div className='session-form-box'>
             <form onSubmit={this.handleSubmit} className='session-form'>
+              <header>
+                <img src={window.logo} alt="Pintoit Logo" className='session-form-logo'/> 
+                <h1>Welcome to Pintoit</h1>
+              </header>
+
               <input
-                className={`session-form-input ${emailOutline}`}
+                className={`session-form-input${emailOutline}`}
                 type="text"
                 value={this.state.email}
                 placeholder="Email"
@@ -100,7 +96,7 @@ class LoginForm extends React.Component {
               <span className='error'>{this.emailErrors()}</span>
 
               <input
-                className={`session-form-input ${passwordOutline}`}
+                className={`session-form-input${passwordOutline}`}
                 type="password"
                 value={this.state.password}
                 placeholder="Enter password"
@@ -117,9 +113,9 @@ class LoginForm extends React.Component {
               <button onClick={this.demoLogin} className="demo-login">Demo Log in</button>
 
 
-              <p> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></p>
+              <div className='terms-of-service'> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div>
 
-              <Link to='/signup'>Not on Pinterest yet? Sign up</Link>
+              <Link to='/signup'><div className='session-form-other-form'>Not on Pinterest yet? Sign up</div></Link>
 
             </form>
           </div>

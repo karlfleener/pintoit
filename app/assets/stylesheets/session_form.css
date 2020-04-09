@@ -1,0 +1,147 @@
+/* .session-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+} */
+
+.modal-button {
+  display: block;
+  position: fixed;
+  top: 48px;
+  left: 24px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+  background-color: #efefef;
+  border: 0;
+  min-height: 40px;
+  padding: 8px 36px 8px 36px;
+  border-radius: 24px;
+}
+
+.session-form-logo {
+  width: 25%;
+  height: auto;
+}
+
+.error {
+  display: block;
+  font-size: 12px;
+  color: red;
+}
+
+.session-form-box{
+  display: block;
+  text-align: center;
+  background-color: white;
+  width: 450px;
+  min-height: 400px;
+  padding: 20px 10px 24px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 2px 10px;;
+}
+
+form {
+  width: 300px;
+}
+
+header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -1.3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+header h3 {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+header {
+  margin: 5px;
+}
+
+.session-form {
+  display: inline-block;
+}
+
+.session-form-input {
+  box-sizing: border-box;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  margin-bottom: 6px;
+  min-height: 48px;
+  padding: 8px 16px;
+  font-size: 16px;
+  overflow: visible;
+  width: 100%;
+}
+
+.session-form-input-error-outline,
+.session-form-input-error-outline,
+.session-form-input-error-outline {
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 16px;
+  margin-bottom: 6px;
+  min-height: 48px;
+  padding: 8px 16px;
+  font-size: 16px;
+  overflow: visible;
+  width: 100%;
+}
+
+::placeholder {
+  color: #ddd;
+}
+
+.session-form-submit,
+.demo-login {
+  border: 0px;
+  height: 36px;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 0px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  background-color: rgb(168, 23, 216);
+  color: white;
+  width: 100%;
+}
+
+.terms-of-service a {
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(142, 142, 142);
+}
+
+.terms-of-service {
+  font-size: 11px;
+  margin-top: 12px;
+  color: rgb(142, 142, 142);
+}
+
+.session-form-other-form {
+  font-weight: bold;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.footer {
+  display: block;
+  position: fixed;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 4px 7px;
+}
