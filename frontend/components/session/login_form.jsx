@@ -114,7 +114,7 @@ class LoginForm extends React.Component {
 
               <div className='terms-of-service'> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div>
 
-              <Link to='/signup'><div className='session-form-other-form'>Not on Pinterest yet? Sign up</div></Link>
+              <Link to='/signup'><div className='session-form-other-form'>Not on Pintoit yet? Sign up</div></Link>
 
             </form>
           </div>
