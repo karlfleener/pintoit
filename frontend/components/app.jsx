@@ -1,17 +1,17 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import {
-  Route,
-  Redirect,
-  Switch,
-  Link,
-  HashRouter
-} from 'react-router-dom';
-
+import { Route, Redirect, Switch, Link, HashRoute } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
+import SignupFormContainer from './session/signup_form_containter';
+import LoginFormContainer from './session/login_form_container';
+import NavBarContainer from './navbar/nav_bar_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
-    Pintoit
+    <ProtectedRoute path='/' component={NavBarContainer}/>
+    <Modal />
+    <AuthRoute path='/login' component={LoginFormContainer} />
+    <AuthRoute path='/signup' component={SignupFormContainer} />
   </div>
 )
 
