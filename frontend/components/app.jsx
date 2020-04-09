@@ -10,8 +10,8 @@ const App = () => (
   <div>
     <ProtectedRoute path='/' component={NavBarContainer}/>
     <Modal />
-    {/* <AuthRoute path='/signup' component={SignupFormContainer} /> */}
-    {/* <AuthRoute path='/login' component={LoginFormContainer} /> */}
+    <AuthRoute path='/login' component={LoginFormContainer} />
+    <AuthRoute path='/signup' component={SignupFormContainer} />
   </div>
 )
 

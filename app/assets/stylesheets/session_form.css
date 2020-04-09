@@ -1,9 +1,14 @@
-/* .session-container {
-  margin-top: 16px;
-  margin-bottom: 16px;
-} */
+.session-container {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
 
-.modal-button {
+.session-side-button {
   display: block;
   position: fixed;
   top: 48px;
@@ -14,8 +19,16 @@
   background-color: #efefef;
   border: 0;
   min-height: 40px;
+  width: 128px;
   padding: 8px 36px 8px 36px;
   border-radius: 24px;
+  z-index: 1;
+  outline: none;
+  white-space: nowrap;
+}
+
+.session-side-button:hover {
+  background-color: #d5d5d5;
 }
 
 .session-form-logo {
@@ -30,8 +43,6 @@
 }
 
 .session-form-box{
-  display: block;
-  text-align: center;
   background-color: white;
   width: 450px;
   min-height: 400px;
@@ -77,11 +88,14 @@ header {
   font-size: 16px;
   overflow: visible;
   width: 100%;
+  outline: none;
 }
 
-.session-form-input-error-outline,
-.session-form-input-error-outline,
-.session-form-input-error-outline {
+.session-form-input:hover {
+  border: 2px solid rgb(205, 205, 205);
+}
+
+.error-outline {
   box-sizing: border-box;
   border: 2px solid red;
   border-radius: 16px;
@@ -91,6 +105,7 @@ header {
   font-size: 16px;
   overflow: visible;
   width: 100%;
+  outline: none;
 }
 
 ::placeholder {
@@ -101,7 +116,6 @@ header {
 .demo-login {
   border: 0px;
   height: 36px;
-  display: inline-block;
   border-radius: 4px;
   padding: 0px 18px;
   font-size: 15px;
@@ -109,10 +123,14 @@ header {
   outline: none;
   cursor: pointer;
   margin-top: 10px;
-  text-align: center;
   background-color: rgb(168, 23, 216);
   color: white;
   width: 100%;
+}
+
+.session-form-submit:hover,
+.demo-login:hover {
+  background-color: rgb(152, 22, 196);
 }
 
 .terms-of-service a {
@@ -134,9 +152,9 @@ header {
 }
 
 .footer {
-  display: block;
   position: fixed;
-  text-align: center;
+  bottom: 0;
+  margin-bottom: 16px;
 }
 
 .footer a {
