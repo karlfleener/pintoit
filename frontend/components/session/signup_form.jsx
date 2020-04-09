@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -23,7 +23,8 @@ class SignupForm extends React.Component {
     this.props.signup(this.state)
       .then(null, (err) => {
         this.setState({ errors: this.renderErrors() })
-      });
+      })
+      .then(this.props.closModal);
   }
 
   renderErrors() {
@@ -36,11 +37,11 @@ class SignupForm extends React.Component {
     if (this.props.errors[0].includes("Email can't be blank")) {
       error.push("You missed a spot! Don’t forget to add your email.");
       return error;
-    } else if (this.props.errors[0].includes("Email has already been taken")) {
-      error.push("Please use a different email.");
-      return error;
     } else if (!emailIsValid(this.state.email)) {
       error.push("Hmm...that doesn't look like an email address.");
+      return error;
+    } else if (this.props.errors[0].includes("Email has already been taken")) {
+      error.push("Please use a different email.");
       return error;
     } else if (this.props.errors[0].includes("Password is too short (minimum is 6 characters)")) {
       error.push("Your password is too short! You need 6+ characters.");
@@ -73,24 +74,26 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const emailOutline = this.emailErrors() ? 'error-outline' : '';
-    const passwordOutline = this.passwordErrors() ? 'error-outline' : '';
-    const ageOutline = this.ageErrors() ? 'error-outline' : '';
+    const emailOutline = this.emailErrors() ? '-error-outline' : '';
+    const passwordOutline = this.passwordErrors() ? '-error-outline' : '';
+    const ageOutline = this.ageErrors() ? '-error-outline' : '';
 
     return (
      <div className='session-container'>
-      <button id="session-side-button"><Link to='/login'>Log in</Link></button>
+      {/* <button id="session-side-button"><Link to='/login'>Log in</Link></button> */}
         
         <div className='session-form-container'>
 
-          <div>
-            <img src={window.logo} alt="Pintoit Logo"/> 
-            <h1>Welcome to Pintoit</h1>
-            <h3>Find new ideas to try</h3>
-
+          <div className='session-form-box'>
             <form onSubmit={this.handleSubmit} className='session-form'>
+              <header>
+                <img src={window.logo} alt="Pintoit Logo" className='session-form-logo'/> 
+                <h1>Welcome to Pintoit</h1>
+                <h3>Find new ideas to try</h3>
+              </header>
+
               <input 
-                className={`session-form-input ${emailOutline}`}
+                className={`session-form-input${emailOutline}`}
                 type="text" 
                 value={this.state.email}
                 placeholder="Email"
@@ -99,7 +102,7 @@ class SignupForm extends React.Component {
               <span className='error'>{this.emailErrors()}</span>
 
               <input 
-                className={`session-form-input ${passwordOutline}`}
+                className={`session-form-input${passwordOutline}`}
                 type="password" 
                 value={this.state.password}
                 placeholder="Enter password"
@@ -108,7 +111,7 @@ class SignupForm extends React.Component {
               <span className='error'>{this.passwordErrors()}</span>
 
               <input 
-                className={`session-form-input ${ageOutline}`}
+                className={`session-form-input${ageOutline}`}
                 type="age" 
                 value={this.state.age}
                 placeholder="Age"
@@ -122,9 +125,9 @@ class SignupForm extends React.Component {
                 value="Continue"
               />
 
-              <p>By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></p>
+              <div className='terms-of-service'>By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div>
 
-            <Link to='/login'>Already a member? Log in</Link>
+              <Link to='/login'><div className="session-form-other-form">Already a member? Log in</div></Link>
 
             </form>
           </div>

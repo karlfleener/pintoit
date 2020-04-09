@@ -25,7 +25,7 @@ const NavBar = ({ currentUser, logout }) => {
       </Link>
     
       <div className="search-bar">
-        <i className="fa fa-search" aria-hidden="true"></i>
+        <i className="fas fa-search" aria-hidden="true"></i>
         <input 
           type="text" 
           placeholder="Search for Animal photography" 

@@ -6,7 +6,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
     <%= javascript_include_tag 'application' %>
+
+    <link rel='icon' href="<%= image_url('favicon_logo.png') %>" type='image/x-icon'/ >
+
+    <script src="https://kit.fontawesome.com/ef532669ff.js" crossorigin="anonymous"></script>
+
     <script type="text/javascript"> window.logo="<%= image_url('pintoit_logo.png') %>"</script>
     <% if current_user %>
         <script>
