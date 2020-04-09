@@ -74,13 +74,13 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const emailOutline = this.emailErrors() ? '-error-outline' : '';
-    const passwordOutline = this.passwordErrors() ? '-error-outline' : '';
-    const ageOutline = this.ageErrors() ? '-error-outline' : '';
+    const emailOutline = this.emailErrors() ? 'error-outline' : '';
+    const passwordOutline = this.passwordErrors() ? 'error-outline' : '';
+    const ageOutline = this.ageErrors() ? 'error-outline' : '';
 
     return (
      <div className='session-container'>
-      {/* <button id="session-side-button"><Link to='/login'>Log in</Link></button> */}
+      <button className="session-side-button"><Link to='/login'>Log in</Link></button>
         
         <div className='session-form-container'>
 
@@ -93,7 +93,7 @@ class SignupForm extends React.Component {
               </header>
 
               <input 
-                className={`session-form-input${emailOutline}`}
+                className={`session-form-input ${emailOutline}`}
                 type="text" 
                 value={this.state.email}
                 placeholder="Email"
@@ -102,7 +102,7 @@ class SignupForm extends React.Component {
               <span className='error'>{this.emailErrors()}</span>
 
               <input 
-                className={`session-form-input${passwordOutline}`}
+                className={`session-form-input ${passwordOutline}`}
                 type="password" 
                 value={this.state.password}
                 placeholder="Enter password"
@@ -111,7 +111,7 @@ class SignupForm extends React.Component {
               <span className='error'>{this.passwordErrors()}</span>
 
               <input 
-                className={`session-form-input${ageOutline}`}
+                className={`session-form-input ${ageOutline}`}
                 type="age" 
                 value={this.state.age}
                 placeholder="Age"
@@ -132,20 +132,20 @@ class SignupForm extends React.Component {
             </form>
           </div>
 
-          <div className='footer'>
-            <a>About Pintoit</a>
-            <a>Blog</a>
-            <a>Businesses</a>
-            <a>Terms of Service</a>
-            <a>Privacy Policy</a>
-            <a>Help</a>
-            <a>iPhone App</a>
-            <a>Android App</a>
-            <a>Users</a>
-            <a>Collections</a>
-            <a>Topics</a>
-          </div>
         </div>
+        <footer className='footer'>
+          <a>About Pintoit</a>
+          <a>Blog</a>
+          <a>Businesses</a>
+          <a>Terms of Service</a>
+          <a>Privacy Policy</a>
+          <a>Help</a>
+          <a>iPhone App</a>
+          <a>Android App</a>
+          <a>Users</a>
+          <a>Collections</a>
+          <a>Topics</a>
+        </footer>
      </div>
     );
   }
