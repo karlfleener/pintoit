@@ -9,6 +9,8 @@
 #  updated_at :datetime         not null
 #
 class BoardPin < ApplicationRecord
+  validates :board_id, :pin_id presence: true
+  
   belongs_to :board,
     foreign_key: :board_id,
     class_name: :Board

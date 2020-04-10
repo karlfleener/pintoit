@@ -163,3 +163,7 @@ header {
     font-weight: normal;
     padding: 4px 7px;
 }
+
+a:hover {
+  cursor: pointer;
+}

@@ -10,6 +10,8 @@
 #  updated_at  :datetime         not null
 #
 class Pin < ApplicationRecord
+  validates :title, :description, :creator_id, presence: true
+
   belongs_to :user,
     foreign_key: :creator_id,
     class_name: :User
