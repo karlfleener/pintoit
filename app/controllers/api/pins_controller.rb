@@ -37,7 +37,7 @@ class Api::PinsController < ApplicationController
 
   def update
     # only able to update if pin belongs to current user
-    @pin = current_user.pins.find(params[id])
+    @pin = current_user.pins.find(params[:id])
     if @pin.update(pin_params)
       render 'api/pins/show'
     else
@@ -47,7 +47,7 @@ class Api::PinsController < ApplicationController
 
   def destroy
     # can only destroy if pin belongs to current user
-    @pin = current_user.pins.find(params[id])
+    @pin = current_user.pins.find(params[:id])
     if @pin.destroy
       render 'api/pins/show'
     else
