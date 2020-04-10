@@ -36,9 +36,8 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
-    # only able to update if board belongs to current user
-    @board = current_user.boards.find(params[:id])
-    if @board.update(board_params)
+    @board = Board.find(params[:id])
+    if (@board.creator_id === current_user.id && @board.update(board_params))
       render 'api/boards/show'
     else
       render json: @board.errors.full_messages, status: 422
@@ -46,7 +45,6 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-    # can only destroy if board belongs to current user
     @board = current_user.boards.find(params[:id])
     if @board.destroy
       render 'api/boards/show'
