@@ -3,13 +3,20 @@ import ReactDom from 'react-dom';
 import Root from './components/root'
 import configureStore from './store/store.js'
 import {signup, login, logout} from './util/session_api_util'
+import {fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard} from './util/board_api_util'
+import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './util/board_api_util'
 
 
 document.addEventListener('DOMContentLoaded', () => {
   // TESTING
-    window.signup = signup;
-    window.login = login
-    window.logout = logout;
+  window.signup = signup;    
+  window.login = login
+  window.logout = logout;
+  window.fetchAllBoards = fetchAllBoards;
+  window.fetchBoard = fetchBoard;
+  window.createBoard = createBoard;
+  window.updateBoard = updateBoard;
+  window.deleteBoard  = deleteBoard;
   // TESTING
   
   const root = document.getElementById('root');

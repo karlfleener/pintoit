@@ -16,8 +16,8 @@ class Api::PinsController < ApplicationController
 
   def index
     # needs to be the all pins of certain user
-    @pins = user.pins
-    render :index
+    @pins = Pin.all
+    render "api/pins/index"
   end
 
   def show

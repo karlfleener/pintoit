@@ -4,7 +4,7 @@
   align-items: center;
   position: sticky;
   background-color: white;
-  height: 50px;
+  height: 46px;
   align-items: center;
   overflow: hidden;
   margin-top: 10px;
@@ -16,43 +16,74 @@
   border-bottom: 1px solid #ddd;
 }
 
+.nav-logo {
+  position: fixed;
+  top: 10px;
+  left: 12px;
+  height: 7%;
+  width: auto;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar .search-bar-input {
+  padding-left: 48px;
+}
+
 .search-bar-input {
   box-sizing: border-box;
   background-color: #efefef;
-  border-radius: 16px;
+  border-radius: 8px;
   margin-bottom: 6px;
   min-height: 48px;
   padding: 8px 16px;
   font-size: 16px;
   overflow: visible;
-  outline: none;
+  border: none;
 }
 
-::placeholder {
-  color: #333;
+.search-bar-input::placeholder {
+  color: #8e8e8e;
+  font-weight: bold;
 }
 
-.nav-logo {
-  width: 48%;
-  height: auto;
+.search-bar i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  padding: 8px 12px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.fas {
+  font-size: 24px;
+  color: #8e8e8e;
 }
 
 .logout-button {
+  position: fixed;
+  top: 10px;
+  right: 12px;
   font-size: 16px;
   text-align: center;
   font-weight: 700;
   background-color: #efefef;
   border: 0;
   min-height: 40px;
-  width: 128px;
-  padding: 8px 36px 8px 36px;
+  width: 100px;
+  padding: 8px 24px 8px 24px;
   border-radius: 24px;
   outline: none;
+  white-space: nowrap;
 }
 
 .logout-button:hover {
   background-color: #d5d5d5;
 }
+
 
 
 
