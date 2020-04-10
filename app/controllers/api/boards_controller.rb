@@ -2,7 +2,7 @@ class Api::BoardsController < ApplicationController
   def new
     # displays the form to create a board (modal)
     @board = Board.new
-    render :new
+    render "api/boards/show"
   end
 
   def create
@@ -22,14 +22,14 @@ class Api::BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
-    render :show
+    render "api/boards/show"
   end
 
   def edit
     # only able to edit if board belongs to current user
     @board = Board.find(params[:id])
     if @board.creator_id == current_user.id
-      render :edit
+      render "api/boards/show"
     else
       render 'api/boards/show'
     end
