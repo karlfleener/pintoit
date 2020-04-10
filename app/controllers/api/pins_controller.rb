@@ -2,7 +2,7 @@ class Api::PinsController < ApplicationController
   def new
     # displays the form to create a pin (modal)
     @pin = Pin.new
-    render 'api/pins/show'
+    render :new
   end
 
   def create
@@ -22,14 +22,14 @@ class Api::PinsController < ApplicationController
 
   def show
     @pin = Pin.find(params[:id])
-    render 'api/pins/show'
+    render :show
   end
 
   def edit
     # only able to edit if pin belongs to current user
     @pin = Pin.find(params[:id])
     if @pin.creator_id == current_user.id
-      render 'api/pins/show'
+      render :edit
     else
       render 'api/pins/show'
     end
