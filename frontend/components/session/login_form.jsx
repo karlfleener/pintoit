@@ -63,7 +63,7 @@ class LoginForm extends React.Component {
   }
 
   passwordErrors() {
-    if (this.state.errors[0] === "Your password is too short! You need 6+ characters.") {
+    if (this.state.errors[0] === "The password you entered is incorrect. Try again") {
       return this.state.errors;
     }
   }
