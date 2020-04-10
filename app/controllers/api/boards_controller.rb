@@ -16,8 +16,8 @@ class Api::BoardsController < ApplicationController
 
   def index
     # needs to be the all boards of certain user
-    @boards = user.boards
-    render :index
+    @boards = Board.all
+    render :"api/boards/index"
   end
 
   def show

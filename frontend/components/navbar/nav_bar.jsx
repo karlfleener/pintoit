@@ -21,17 +21,17 @@ const NavBar = ({ currentUser, logout }) => {
       <Link to='/'><img src={window.logo} className="nav-logo" alt="Pintoit Logo"/></Link>
     
       <div className="search-bar">
-        <i className="fas fa-search" aria-hidden="true"></i>
         <input 
           className="search-bar-input"
           type="text" 
           placeholder="Search for Animal photography" 
         />
+        <i className="fas fa-search" aria-hidden="true"></i>
       </div>
 
       <Link to="/"><div className="nav-item">Home</div></Link>
       <Link to="/following"><div className="nav-item">Following</div></Link>
-      <Link to="/"><div className="nav-item">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
+      <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}><div className="nav-item">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
       <div className='nav-item'><i className="fas fa-comment-dots"></i></div>      
       <div className='nav-item'><i className="fas fa-bell"></i></div>  
       <button className='nav-item logout-button' onClick={logout}>Log out</button>                            

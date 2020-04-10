@@ -20,5 +20,5 @@ pin2 = Pin.create!({ title: 'mountain creek', description: 'beautiful moutain', 
 pin3 = Pin.create!({ title: 'structure', description: 'great architecture', creatorId: 1})
 
 board1 = Board.create!({ title: 'animals', creatorId: 1})
-board3 = Board.create!({ title: 'nature', , creatorId: 2})
+board3 = Board.create!({ title: 'nature', creatorId: 2})
 board2 = Board.create!({ title: 'architecture', creatorId: 3})
