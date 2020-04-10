@@ -48,11 +48,8 @@ class Api::PinsController < ApplicationController
   def destroy
     # can only destroy if pin belongs to current user
     @pin = current_user.pins.find(params[:id])
-    if @pin.destroy
-      render 'api/pins/show'
-    else
-      render json: ["Nothing to delete"], status 404
-    end
+    @pin.destroy
+    render 'api/pins/show'
   end
 
   private
