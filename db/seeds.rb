@@ -10,15 +10,15 @@ User.destroy_all
 Pin.destroy_all
 Board.destroy_all
 
-demoUser = User.create!({ email: 'userdemo@gmail.com', password: 'password123', age: 25 })
-user1 = User.create!({ email: 'user1@gmail.com', password: 'password123', age: 25})
-user2 = User.create!({ email: 'user2@gmail.com', password: 'password123', age: 25})
-user2 = User.create!({ email: 'user3@gmail.com', password: 'password123', age: 25})
+user_demo = User.create!({ id: 4, email: 'userdemo@gmail.com', password: 'password123', age: 25 })
+user1 = User.create!({ id: 1, email: 'user1@gmail.com', password: 'password123', age: 25})
+user2 = User.create!({ id: 2, email: 'user2@gmail.com', password: 'password123', age: 25})
+user2 = User.create!({ id: 3, email: 'user3@gmail.com', password: 'password123', age: 25})
 
-pin1 = Pin.create!({ title: 'parrot', description: 'red parrot', creatorId: 2})
-pin2 = Pin.create!({ title: 'mountain creek', description: 'beautiful moutain', creatorId: 3})
-pin3 = Pin.create!({ title: 'structure', description: 'great architecture', creatorId: 1})
+pin1 = Pin.create!({ id: 4, title: 'parrot', description: 'red parrot', creator_id: 2})
+pin2 = Pin.create!({ id: 5, title: 'mountain creek', description: 'beautiful moutain', creator_id: 3})
+pin3 = Pin.create!({ id: 6, title: 'structure', description: 'great architecture', creator_id: 1})
 
-board1 = Board.create!({ title: 'animals', creatorId: 1})
-board3 = Board.create!({ title: 'nature', creatorId: 2})
-board2 = Board.create!({ title: 'architecture', creatorId: 3})
+board1 = Board.create!({ id: 7, title: 'animals', creator_id: 1})
+board3 = Board.create!({ id: 8, title: 'nature', creator_id: 2})
+board2 = Board.create!({ id: 9, title: 'architecture', creator_id: 3})

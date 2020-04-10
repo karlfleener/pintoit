@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_185029) do
+ActiveRecord::Schema.define(version: 2020_04_10_190241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_185029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_boards_on_creator_id"
-    t.index ["title"], name: "index_boards_on_title", unique: true
+    t.index ["title"], name: "index_boards_on_title"
   end
 
   create_table "follows", force: :cascade do |t|

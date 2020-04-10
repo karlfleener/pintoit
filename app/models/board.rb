@@ -11,6 +11,7 @@
 #
 class Board < ApplicationRecord
   validates :title, :creator_id, presence: true
+  validates :title, uniqueness: { scope: :creator_id }
 
   belongs_to :user,
     foreign_key: :creator_id,

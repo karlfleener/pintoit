@@ -4,7 +4,7 @@ import Root from './components/root'
 import configureStore from './store/store.js'
 import {signup, login, logout} from './util/session_api_util'
 import {fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard} from './util/board_api_util'
-import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './util/board_api_util'
+import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './util/pin_api_util'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createBoard = createBoard;
   window.updateBoard = updateBoard;
   window.deleteBoard  = deleteBoard;
+  window.fetchAllPins = fetchAllPins;
+  window.fetchPin = fetchPin;
+  window.createPin = createPin;
+  window.updatePin = updatePin;
+  window.deletePin  = deletePin;
   // TESTING
   
   const root = document.getElementById('root');
