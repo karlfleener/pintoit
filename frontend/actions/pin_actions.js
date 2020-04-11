@@ -29,6 +29,10 @@ export const fetchAllPins = () => dispatch => PinApiUtil.fetchAllPins()
   .then(pins => dispatch(receiveAllPins(pins)),
     err => dipsatch(receivePinErrors(err.responseJSON)))
 
+export const fetchAllUsersPins = (userId) => dispatch => PinApiUtil.fetchAllUsersPins(userId)
+  .then(pins => dispatch(receiveAllPins(pins)),
+    err => dipsatch(receivePinErrors(err.responseJSON)))
+
 export const fetchPin = pinId => dispatch => PinApiUtil.fetchPin(pinId)
   .then(pin => dispatch(receivePin(pin)),
     err => dispatch(receivePinErrors(err.responseJSON)))
