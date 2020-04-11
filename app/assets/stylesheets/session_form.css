@@ -14,21 +14,24 @@
   top: 48px;
   left: 24px;
   font-size: 16px;
-  text-align: center;
   font-weight: 700;
   background-color: #efefef;
   border: 0;
   min-height: 40px;
   width: 128px;
-  padding: 8px 36px 8px 36px;
+  /* padding: 8px 36px 8px 36px; */
   border-radius: 24px;
   z-index: 1;
   outline: none;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .session-side-button:hover {
   background-color: #d5d5d5;
+}
+
+.session-side-button:focus {
+  border: 4px solid rgb(82, 197, 199);
 }
 
 .session-form-logo {
@@ -93,6 +96,10 @@ header {
 
 .session-form-input:hover {
   border: 2px solid rgb(205, 205, 205);
+}
+
+.session-form-input:focus {
+  border: 4px solid rgb(82, 197, 199);
 }
 
 .error-outline {

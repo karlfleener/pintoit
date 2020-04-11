@@ -3,8 +3,8 @@ import ReactDom from 'react-dom';
 import Root from './components/root'
 import configureStore from './store/store.js'
 import {signup, login, logout} from './util/session_api_util'
-import {fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard} from './util/board_api_util'
-import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './util/pin_api_util'
+import {fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard} from './actions/board_actions'
+import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './actions/pin_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
