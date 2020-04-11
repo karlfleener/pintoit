@@ -80,7 +80,7 @@ class SignupForm extends React.Component {
 
     return (
      <div className='session-container'>
-      <button className="session-side-button"><Link to='/login'>Log in</Link></button>
+        <Link to='/login'><button className="session-side-button">Log in</button></Link>
         
         <div className='session-form-container'>
 

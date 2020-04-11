@@ -74,7 +74,7 @@ class LoginForm extends React.Component {
 
     return (
       <div className='session-container'>
-        <button className="session-side-button"><Link to='/signup'>Sign up</Link></button>
+        <Link to='/signup'><button className="session-side-button">Sign up</button></Link>
 
         <div className='session-form-container'>
 
