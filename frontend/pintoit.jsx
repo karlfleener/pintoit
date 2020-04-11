@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Root from './components/root'
 import configureStore from './store/store.js'
-import {signup, login, logout} from './util/session_api_util'
+import {signup, login, logout} from './actions/session_actions'
 import {fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard} from './actions/board_actions'
 import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './actions/pin_actions'
 

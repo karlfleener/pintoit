@@ -1,4 +1,4 @@
-import * as BoardApitUtil from '../util/board_api_util';
+import * as BoardApiUtil from '../util/board_api_util';
 
 export const RECEIVE_ALL_BOARDS = 'RECEIVE_ALL_BOARDS';
 export const RECEIVE_BOARD = 'RECEIVE_BOARD';
@@ -25,23 +25,39 @@ const receiveBoardErrors = errors => ({
   errors
 })
 
-export const fetchAllBoards = () => dispatch => BoardApitUtil.fetchAllBoards()
+export const fetchAllUsersBoards = (userId) => dispatch => BoardApitUtil.fetchAllUsersBoards(userId)
   .then(boards => dispatch(receiveAllBoards(boards)), 
   err => dipsatch(receiveBoardErrors(err.responseJSON)))
 
-export const fetchBoard = boardId => dispatch => BoardApitUtil.fetchBoard(boardId)
+export const fetchBoard = boardId => dispatch => BoardApiUtil.fetchBoard(boardId)
   .then(board => dispatch(receiveBoard(board)), 
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
-export const createBoard = board => dispatch => BoardApitUtil.createBoard(board)
-  .then(board => {
-    // debugger
-    return dispatch(receiveBoard(board))},
+export const createBoard = board => dispatch => BoardApiUtil.createBoard(board)
+  .then(board => dispatch(receiveBoard(board)),
   err => dipsatch(receiveBoardErrors(err.responseJSON)))
 
-export const updateBoard = board => dispatch => BoardApitUtil.updateBoard(board)
+export const updateBoard = board => dispatch => BoardApiUtil.updateBoard(board)
   .then(board => dispatch(receiveBoard(board)),
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
-export const deleteBoard = boardId => dispatch => BoardApitUtil.deleteBoard(boardId)
+export const deleteBoard = boardId => dispatch => BoardApiUtil.deleteBoard(boardId)
   .then(() => dispatch(removeBoard()))
+
+// export const fetchAllBoards = () => {
+//   // debugger
+//   return (dispatch) => {
+//     // debugger
+//     return BoardApiUtil.fetchAllBoards().then((boards) => {
+//       // debugger
+//       return dispatch(receiveAllBoards(boards))
+//     })
+//   }
+// }
+
+// export const createBoard = board => dispatch => BoardApiUtil.createBoard(board)
+//   .then(board => {
+//     debugger
+//     return dispatch(receiveBoard(board))
+//   },
+//     err => dipsatch(receiveBoardErrors(err.responseJSON)))
