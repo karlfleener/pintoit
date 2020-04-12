@@ -34,9 +34,7 @@ export const fetchBoard = boardId => dispatch => BoardApitUtil.fetchBoard(boardI
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
 export const createBoard = board => dispatch => BoardApitUtil.createBoard(board)
-  .then(board => {
-    debugger
-    return dispatch(receiveBoard(board))},
+  .then(board => dispatch(receiveBoard(board)),
   err => dipsatch(receiveBoardErrors(err.responseJSON)))
 
 export const updateBoard = board => dispatch => BoardApitUtil.updateBoard(board)

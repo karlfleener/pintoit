@@ -1,0 +1,114 @@
+.create-pin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #efefef;
+}
+
+.create-pin-form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 880px;
+  height: 550px;
+  border-radius: 16px;
+  background-color: white;
+  padding: 20px;
+}
+
+.create-pin-form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40px;
+}
+
+.create-pin-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 10%;
+}
+
+.create-pin-header button {
+  font-size: 16px;
+  padding: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.create-pin-select {
+  background-color: #efefef;
+  color: rgb(185, 185, 185);
+  width: 180px;
+  border-radius: 16px 0 0 16px;
+}
+
+.create-pin-save {
+  background-color: rgb(168, 23, 216);
+  color: white;
+  border-radius: 0 16px 16px 0;
+}
+
+.create-pin-form-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  float: left;
+  background-color: #efefef;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  outline: 4px dashed rgb(205, 205, 205);
+  outline-offset: -18px;
+}
+
+.fas {
+  margin: 12px;
+}
+
+.create-pin-form-text-container {
+  float: right;
+  width: 100%;
+  height: 100%;
+  margin: 32px;
+}
+
+.create-pin-form-text-container textarea {
+  cursor: text;
+  padding: 0;
+  width: 100%;
+  border: none;
+  overflow: scroll;
+  outline: none;
+  resize: none;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.create-pin-form-title {
+  font-size: 36px;
+  font-weight: 700;
+  height: 43px;
+}
+
+.create-pin-form-description {
+  font-size: 16px;
+  height: 23px;
+}
+
+.create-pin-form-image-container div {
+  color: rgb(185, 185, 185);
+}

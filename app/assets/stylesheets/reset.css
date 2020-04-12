@@ -23,7 +23,8 @@ time, mark, audio, video {
     font-family: sans-serif;
     color: rgb(51, 51, 51);
     vertical-align: baseline;
-    -webkit-font-smoothing: antialiased;
+		-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
