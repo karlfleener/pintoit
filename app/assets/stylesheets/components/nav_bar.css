@@ -1,0 +1,87 @@
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  width: 100%;
+  height: 74px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-logo {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px
+}
+
+.search-bar {
+  position: relative;
+  width: 1000px
+}
+
+.search-bar .search-bar-input {
+  padding-left: 42px;
+}
+
+.search-bar-input {
+  box-sizing: border-box;
+  background-color: #efefef;
+  border-radius: 24px;
+  margin-bottom: 6px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 16px;
+  font-size: 16px;
+  overflow: visible;
+  border: none;
+}
+
+.search-bar-input:focus {
+  border: 4px solid rgb(82, 197, 199);
+  outline: none;
+}
+
+.search-bar-input::placeholder {
+  color: #8e8e8e;
+  font-weight: bold;
+  left: 0px;
+}
+
+.search-bar-input:focus::placeholder {
+  color: transparent;
+}
+
+.search-bar i {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  padding: 8px 12px;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.nav-item  {
+  padding: 16px;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.nav-item:hover {
+  background-color: #efefef;
+} 
+
+.fas {
+  font-size: 24px;
+  color: #8e8e8e;
+}
+
+.logout-button {
+  font-size: 16px; 
+  font-weight: 700;
+  border: 0;
+  margin: 0;
+  background-color: transparent;
+  outline: none;
+  white-space: nowrap;
+}
