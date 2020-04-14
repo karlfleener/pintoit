@@ -6,8 +6,19 @@
   top: 100px;
 }
 
-.show-pin-container:hover {
-  cursor: zoom-out;
+#show-pin-arrow {
+  position: fixed;
+  top: 100px;
+  left: 32px;
+  z-index: 1;
+  background-color: white;
+  color: black;
+  padding: 12px;
+  border-radius: 50%;
+}
+
+#show-pin-arrow:hover {
+  filter: brightness(95%);
 }
 
 .show-pin-box {
@@ -18,7 +29,6 @@
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
   background-color: white;
   overflow: hidden;
-  margin: 0 auto;
 }
 
 .show-pin-image-container {
@@ -48,6 +58,7 @@
 }
 
 .show-edit {
+  opacity: 1;
   color: black;
   padding: 16px;
   background-color: white;
