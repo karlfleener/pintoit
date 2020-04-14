@@ -5,19 +5,11 @@ import PinIndexItem from './pin_index_item';
 class PinIndex extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
     this.props.fetchAllPins();
   }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.pins.length !== this.props.pins.length) {
-  //     this.props.fetchAllPins();
-  //   }
-  // }
-
 
   render() {
       const { pins } = this.props;

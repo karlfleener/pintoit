@@ -1,40 +1,63 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
-
 class PinShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = '';
+    // debugger
+
+    this.state = 
+    !this.props.pin ? {title: '' } : {
+      title: this.props.pin.title,
+      description: this.props.pin.description,
+      imageUrl: this.props.pin.imageUrl,
+      creator_id: this.props.pin.creatorid
+    }
+  }
+  
+  
+  componentDidMount() {
+    this.props.fetchPin(this.props.match.params.pinId).then(pin => {
+      this.setState({
+        title: this.props.pin.title,
+        description: this.props.pin.description,
+        imageUrl: this.props.pin.imageUrl,
+        creator_id: this.props.pin.creator_id
+      })
+    });
   }
 
+  
+
   render() {
+    console.log(this.props)
+    
+    let editPin = this.props.currentUser.id === this.props.pin.creator_id ? 'show-edit' : '';
+    debugger
+    
     return (
       <div className="show-pin-container">
-        <div className="show-form-box">
-          <form>
-            <div className='show-pin-image-container'>
-              <div>
-                <div>image preview</div>
+        {/* <i className="fas fa-arrow-left"></i> */}
+        <div className="show-pin-box">
+          <div className='show-pin-image-container'>
+            <img src={this.state.imageUrl} alt={this.state.title}/>
+          </div>
+
+          <div className='show-pin-info-container'>
+
+            <header className="show-pin-header">
+              <i className={`fas fa-pen ${editPin}`}></i>
+              <div className="show-pin-header-right">
+                <button className='show-pin-select'>Select</button>
+                <button className='show-pin-save'>Save</button>
               </div>
+            </header>
+
+            <div className="show-pin-info">
+              <div className='show-pin-title'>{this.state.title}</div>
+              <div className='show-pin-description'>{this.state.description}</div>
             </div>
-            <div className='show-pin-info-container'>
-              <div className="show-pin-info-board">
-                <label>Board</label>
-                <div>Board Name</div>
-              </div>
-              <div className="show-pin-info-description">
-                <label>Description</label>
-                <textarea name="" id="" cols="30" rows="10" placeholder='Write a note about this Pin...'></textarea>
-              </div>
-            </div>
-          </form>
-          <footer className="show-pin-footer">
-            <div className='show-pin-footer-items'>
-              <button onClick=''>Edit</button>
-              <button onClick=''>Save</button>
-            </div>
-          </footer>
+          </div>
         </div>
       </div>
     )
