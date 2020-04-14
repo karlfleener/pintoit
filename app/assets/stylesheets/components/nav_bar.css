@@ -99,7 +99,7 @@
   border: 0;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
-  z-index: 1;
+  z-index: 5;
 }
 
 .create-pin-button:hover {
