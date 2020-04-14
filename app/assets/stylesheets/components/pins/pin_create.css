@@ -22,13 +22,6 @@
   padding: 20px;
 }
 
-.create-pin-form {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 40px;
-}
 
 .create-pin-header {
   display: flex;
@@ -58,24 +51,107 @@
   border-radius: 0 16px 16px 0;
 }
 
+.create-pin-form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40px;
+}
+
 .create-pin-form-image-container {
+  position: relative;
+  width: 340px;
+  height: 450px;
+  background-color: #efefef;
+  border-radius: 12px;
+
+}
+
+.create-pin-form-image-preview {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 450px;
+  border-radius: 8px;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.show {
+  z-index: 1;
+}
+
+.create-pin-form-image-preview img {
+  width: 100%;
+}
+
+.create-pin-form-input {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 8px;
   float: left;
-  background-color: #efefef;
+  width: 340px;
+  height: 450px;
+  border-radius: 8px;
+  outline: none;
+  opacity: 0;
+}
+
+.create-pin-form-input:hover {
   cursor: pointer;
-  width: 100%;
-  height: 100%;
-  outline: 4px dashed rgb(205, 205, 205);
-  outline-offset: -18px;
 }
 
 .create-pin-form .fas {
   margin: 12px;
+}
+
+.fa-arrow-circle-up,
+.click-upload {
+  position: relative;
+  bottom: 260px
+}
+
+.fa-trash {
+  opacity: 0;
+}
+
+.trash-show {
+  opacity: 1;
+  position: relative;
+  bottom: 325px;
+  right: 170px;
+  padding: 16px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
+  z-index: 1;
+}
+
+.trash-show:hover {
+  background-color: #efefef;
+}
+
+.image-error-outline {
+  width: 340px;
+  height: 450px;
+  border-radius: 8px;
+  border: 2px solid red;
+}
+
+#image-error {
+  position: relative;
+  bottom: 294px;
+  color: red;
+}
+
+.create-pin-form-image-container div {
+  color: rgb(185, 185, 185);
 }
 
 .create-pin-form-text-container {
@@ -109,6 +185,3 @@
   height: 23px;
 }
 
-.create-pin-form-image-container div {
-  color: rgb(185, 185, 185);
-}

@@ -14,16 +14,20 @@ import PinEditFormContainer from './pin/pin_edit_form_container';
 import Modal from './modal/modal';
 
 const App = () => (
-  <div>
+  <div className="app">
     <Modal />
+
     <AuthRoute path='/login' component={LoginFormContainer} />
     <AuthRoute path='/signup' component={SignupFormContainer} />
 
     <ProtectedRoute path='/' component={NavBarContainer}/>
-    <ProtectedRoute path='/' component={PinIndexContainter} />
-    <ProtectedRoute path='/pins/show' component={PinShowContainer} />
-    <ProtectedRoute path='/pin-builder' component={PinCreateFormContainer} />
-    <ProtectedRoute path='/pins/edit-pin' component={PinEditFormContainer} />
+  
+  <Switch>
+    <ProtectedRoute exact path='/pins/:pinId' component={PinShowContainer} />
+    <ProtectedRoute exact path='/pin-builder' component={PinCreateFormContainer} />
+    <ProtectedRoute exact path='/pins/:pinId/edit-pin' component={PinEditFormContainer} />
+    <ProtectedRoute exact path='/' component={PinIndexContainter} />
+   </Switch> 
   </div>
 )
 

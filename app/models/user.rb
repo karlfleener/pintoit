@@ -13,6 +13,7 @@
 class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :age, :password_digest, presence: true
+  validates :age, numericality: { greater_than: 9 }
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token

@@ -16,7 +16,7 @@ class PinCreateForm extends React.Component {
     
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
+    this.removeImagePreview = this.removeImagePreview.bind(this);
   }
 
   handleSubmit(e) {
@@ -29,20 +29,11 @@ class PinCreateForm extends React.Component {
       formData.append('pin[image]', this.state.imageFile)
     }
     this.props.createPin(formData)
-    .then(
-      (response => console.log(response.message)),
-      (response) => console.log(response.responseJSON)
-    )
-
-
-    // .then(null, (err) => {
-    //   this.setState({ errors :this.renderErrors() })
-    // })
+    .then((pin) => {
+      this.props.history.push(`/pins/${pin.pin.id}`)}, (err) => {
+      this.setState({ errors: this.renderErrors() })
+    })
   }
-
-  // handleClick(e) {
-
-  // }
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
@@ -59,18 +50,21 @@ class PinCreateForm extends React.Component {
     }
   }
 
+  removeImagePreview() {
+    this.setState({imageUrl: null, imageFile: null, errors: []});
+  }
 
-  // renderErrors() {
-  //   let error = []
+  renderErrors() {
+    let error = []
     
-  //   if (this.state.imageFile === null) {
-  //     error.push("An image is required to create a Pin");
-  //     return error
-  //   };
-  // }
+    if (this.props.errors[0].includes("Image An image is required to create a Pin.")) {
+      error.push("An image is required to create a Pin.");
+      return error
+    };
+  }
 
   imageErrors() {
-    if (this.state.errors[0] === "An image is required to create a Pin") {
+    if (this.state.errors[0] === "An image is required to create a Pin.") {
       return this.state.errors;
     }
   }
@@ -78,35 +72,40 @@ class PinCreateForm extends React.Component {
   
   render(){
     console.log(this.state);
-    const imageOutline = this.imageErrors() ? 'error-outline' : '';
+    const imageOutline = this.imageErrors() ? 'image-error-outline' : '';
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
+    const imagePreviewClass = this.state.imageUrl ? 'show' : '';
     return (
-        <div className='create-pin-container'>
-          <div className='create-pin-form-box'>
-            <header className="create-pin-header">
-              <div>
-                <button className="create-pin-select">Select</button>
-                <button className="create-pin-save" onClick={this.handleSubmit}>Save</button>
-              </div>
-            </header>
-            <form className='create-pin-form'>
-              <div onClick={() => console.log("hi")} className="create-pin-form-image-container">
-                <div><i className="fas fa-arrow-circle-up"></i></div>
-                <div className={``}>Click to upload</div>
-                <input type="file" onChange={this.handleFile} name="" id=""/>
-                <div>{imagePreview}</div>
-                {/* <div className='error'>{this.imageErrors()}</div> */}
-              {/* <input id="media-upload-input" type="file" accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"/> */}
-              </div>
-              {/* <input type="image" src={window.logo} name="image-file" onChange={e => this.onChange(e)}/> */}
-              <div className='create-pin-form-text-container'>
-                <textarea className="create-pin-form-title" type="text" value={this.state.title} placeholder="Add your title" onChange={this.update('title')}/>
-                <textarea className="create-pin-form-description" type="text" value={this.state.description} placeholder="Tell everyone what your Pin is about" onChange={this.update('description')}/>
-                {/* <input type="text" value={this.state.title} placeholder="Add a destination link"/> */}
+      
+      <div className='create-pin-container'>
+        <div className='create-pin-form-box'>
+
+          <header className="create-pin-header">
+            <div>
+              <button className="create-pin-select">Select</button>
+              <button className="create-pin-save" onClick={this.handleSubmit}>Save</button>
             </div>
-            </form>
-          </div>
+          </header>
+
+          <form className='create-pin-form'>
+
+            <div className="create-pin-form-image-container">
+              <input type="file" onChange={this.handleFile} className='create-pin-form-input'/>
+              <div className={`create-pin-form-image-preview ${imagePreviewClass}`}>{imagePreview}</div>
+              <div className={`${imageOutline}`}></div>
+              <i className="fas fa-arrow-circle-up"></i>
+              <div className="click-upload">Click to upload</div>
+              <i onClick={this.removeImagePreview} className={`fas fa-trash trash-${imagePreviewClass}`}></i>
+              <div id='image-error'>{this.imageErrors()}</div>
+            </div>
+
+            <div className='create-pin-form-text-container'>
+              <textarea className="create-pin-form-title" type="text" value={this.state.title} placeholder="Add your title" onChange={this.update('title')}/>
+              <textarea className="create-pin-form-description" type="text" value={this.state.description} placeholder="Tell everyone what your Pin is about" onChange={this.update('description')}/>
+            </div>
+          </form>
         </div>
+      </div>
     )
   }
 }

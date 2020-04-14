@@ -4,7 +4,7 @@ import PinCreateForm from './pin_create_form';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  boards: state.entities.boards,
+  boards: Object.values(state.entities.boards),
   errors: Object.values(state.errors.pins)
 })
 
