@@ -12,6 +12,12 @@ class PinIndex extends React.Component {
     this.props.fetchAllPins();
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.pins.length !== this.props.pins.length) {
+  //     this.props.fetchAllPins();
+  //   }
+  // }
+
 
   render() {
       const { pins } = this.props;
@@ -21,14 +27,7 @@ class PinIndex extends React.Component {
 
     return (
       <div className="pin-index-container">
-        <div className="pin-feed">
           {allPins}
-        </div>
-        <div className="create-pin-dropdown">
-          <Link to="/pin-builder">
-            <button className="create-pin-button"><i className="fas fa-plus"></i></button>
-          </Link>
-        </div>
       </div>
     )
   }

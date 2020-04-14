@@ -1,6 +1,5 @@
 class Api::PinsController < ApplicationController
   def new
-    # displays the form to create a pin (modal)
     @pin = Pin.new
     render :new
   end

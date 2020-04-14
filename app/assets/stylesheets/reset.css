@@ -58,3 +58,11 @@ a:link {
 a:visited {
   text-decoration: none;
 }
+
+html,
+body,
+#root,
+.app {
+	width: 100%;
+	height: 100%;
+}

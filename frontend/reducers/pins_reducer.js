@@ -6,12 +6,12 @@ const pinsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_PINS:
-      return Object.assign({}, state, action.pins);
+      return action.pins;
     case RECEIVE_PIN:
       return Object.assign({}, state, { [action.pin.id]: action.pin });
     case REMOVE_PIN:
-      delete nexState[action.pinId];
-      return nexState;
+      delete newState[action.pinId];
+      return newState;
     default:
       return state;
     }
