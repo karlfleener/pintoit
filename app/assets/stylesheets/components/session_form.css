@@ -1,11 +1,11 @@
 .session-container {
-  background-color: rgb(185, 185, 185);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  background-color: rgb(185, 185, 185);
 }
 
 .session-side-button {
@@ -27,7 +27,7 @@
 }
 
 .session-side-button:hover {
-  background-color: #d5d5d5;
+  filter: brightness(95%);
 }
 
 .session-side-button:focus {
@@ -134,7 +134,7 @@ header {
 
 .session-form-submit:hover,
 .demo-login:hover {
-  background-color: rgb(152, 22, 196);
+  filter: brightness(90%);
 }
 
 .terms-of-service a {

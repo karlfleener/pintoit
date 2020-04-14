@@ -36,7 +36,7 @@ class PinCreateForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value })
+    return e => this.setState({ [field]: e.currentTarget.value, errors: [] })
   }
 
   handleFile(e) {
@@ -60,7 +60,10 @@ class PinCreateForm extends React.Component {
     if (this.props.errors[0].includes("Image An image is required to create a Pin.")) {
       error.push("An image is required to create a Pin.");
       return error
-    };
+    } else if (this.props.errors[0].includes("Title can't be blank")) {
+      error.push("Title can't be blank.");
+      return error
+    } 
   }
 
   imageErrors() {
@@ -69,11 +72,16 @@ class PinCreateForm extends React.Component {
     }
   }
   
+  titleErrors() {
+    if (this.state.errors[0] === "Title can't be blank.") {
+      return this.state.errors;
+    }
+  }
   
   render(){
     console.log(this.state);
     const imageOutline = this.imageErrors() ? 'image-error-outline' : '';
-    const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
+    const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} alt='pin image preview'/> : null;
     const imagePreviewClass = this.state.imageUrl ? 'show' : '';
     return (
       
@@ -101,6 +109,7 @@ class PinCreateForm extends React.Component {
 
             <div className='create-pin-form-text-container'>
               <textarea className="create-pin-form-title" type="text" value={this.state.title} placeholder="Add your title" onChange={this.update('title')}/>
+              <div className='title-error'>{this.titleErrors()}</div>
               <textarea className="create-pin-form-description" type="text" value={this.state.description} placeholder="Tell everyone what your Pin is about" onChange={this.update('description')}/>
             </div>
           </form>

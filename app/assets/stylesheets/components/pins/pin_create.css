@@ -19,7 +19,7 @@
   height: 550px;
   border-radius: 16px;
   background-color: white;
-  padding: 20px;
+  padding: 32px;
 }
 
 
@@ -134,7 +134,7 @@
 }
 
 .trash-show:hover {
-  background-color: #efefef;
+  filter: brightness(90%);
 }
 
 .image-error-outline {
@@ -148,6 +148,15 @@
   position: relative;
   bottom: 294px;
   color: red;
+}
+
+.title-error {
+  position: relative;
+  bottom: 22px;
+  right: 152px;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .create-pin-form-image-container div {

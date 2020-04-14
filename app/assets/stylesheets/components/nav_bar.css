@@ -67,10 +67,11 @@
   padding: 16px;
   border-radius: 50px;
   font-weight: 700;
+  background-color: white;
 }
 
 .nav-item:hover {
-  background-color: #efefef;
+  filter: brightness(95%);
 } 
 
 .fas {
@@ -83,7 +84,7 @@
   font-weight: 700;
   border: 0;
   margin: 0;
-  background-color: transparent;
+  background-color: white;
   outline: none;
   white-space: nowrap;
 }
@@ -102,5 +103,5 @@
 }
 
 .create-pin-button:hover {
-  background-color: #efefef;
+  filter: brightness(90%);
 }
