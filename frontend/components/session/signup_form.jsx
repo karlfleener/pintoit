@@ -24,7 +24,6 @@ class SignupForm extends React.Component {
       .then(null, (err) => {
         this.setState({ errors: this.renderErrors() })
       })
-      .then(this.props.closModal);
   }
 
   renderErrors() {
@@ -49,6 +48,9 @@ class SignupForm extends React.Component {
     } else if (this.props.errors[0].includes("Age can't be blank")) {
       error.push("Help us protect you by providing your age");
       return error;
+    } else if (this.props.errors[0].includes("Age must be greater than 9")) {
+      error.push("Please enter at least two digits.");
+      return error;
     }
 
   }
@@ -68,7 +70,8 @@ class SignupForm extends React.Component {
   }
 
   ageErrors() {
-    if (this.state.errors[0] === "Help us protect you by providing your age") {
+    if (this.state.errors[0] === "Help us protect you by providing your age"
+      || this.state.errors[0] === "Please enter at least two digits.") {
       return this.state.errors;
     }
   }
@@ -78,6 +81,7 @@ class SignupForm extends React.Component {
     const passwordOutline = this.passwordErrors() ? 'error-outline' : '';
     const ageOutline = this.ageErrors() ? 'error-outline' : '';
 
+    console.log(this.state)
     return (
      <div className='session-container'>
         <Link to='/login'><button className="session-side-button">Log in</button></Link>
@@ -134,17 +138,8 @@ class SignupForm extends React.Component {
 
         </div>
         <footer className='footer'>
-          <a>About Pintoit</a>
-          <a>Blog</a>
-          <a>Businesses</a>
-          <a>Terms of Service</a>
-          <a>Privacy Policy</a>
-          <a>Help</a>
-          <a>iPhone App</a>
-          <a>Android App</a>
-          <a>Users</a>
-          <a>Collections</a>
-          <a>Topics</a>
+          <a href='https://github.com/karlfleener' target="_blank">GitHub</a>
+          <a href='https://www.linkedin.com/in/karlfleener/' target="_blank">LinkedIn</a>
         </footer>
      </div>
     );

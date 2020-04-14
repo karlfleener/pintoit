@@ -10,7 +10,8 @@
 #  updated_at  :datetime         not null
 #
 class Pin < ApplicationRecord
-  validates :title, :description, :creator_id, presence: true
+  validates :title, :creator_id, presence: true
+  validate :ensure_image
 
   belongs_to :user,
     foreign_key: :creator_id,
@@ -23,4 +24,13 @@ class Pin < ApplicationRecord
   has_many :boards,
     through: :board_pins,
     source: :board
+
+  has_one_attached :image
+
+  def ensure_image
+    unless self.image.attached?
+      errors[:image] << "An image is required to create a Pin."
+    end
+  end
+
 end

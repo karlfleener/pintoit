@@ -27,15 +27,15 @@ const receiveBoardErrors = errors => ({
 
 export const fetchAllUsersBoards = (userId) => dispatch => BoardApitUtil.fetchAllUsersBoards(userId)
   .then(boards => dispatch(receiveAllBoards(boards)), 
-  err => dipsatch(receiveBoardErrors(err.responseJSON)))
+  err => dispatch(receiveBoardErrors(err.responseJSON)))
 
 export const fetchBoard = boardId => dispatch => BoardApiUtil.fetchBoard(boardId)
   .then(board => dispatch(receiveBoard(board)), 
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
-export const createBoard = board => dispatch => BoardApiUtil.createBoard(board)
+export const createBoard = board => dispatch => BoardApitUtil.createBoard(board)
   .then(board => dispatch(receiveBoard(board)),
-  err => dipsatch(receiveBoardErrors(err.responseJSON)))
+  err => dispatch(receiveBoardErrors(err.responseJSON)))
 
 export const updateBoard = board => dispatch => BoardApiUtil.updateBoard(board)
   .then(board => dispatch(receiveBoard(board)),
@@ -43,21 +43,3 @@ export const updateBoard = board => dispatch => BoardApiUtil.updateBoard(board)
 
 export const deleteBoard = boardId => dispatch => BoardApiUtil.deleteBoard(boardId)
   .then(() => dispatch(removeBoard()))
-
-// export const fetchAllBoards = () => {
-//   // debugger
-//   return (dispatch) => {
-//     // debugger
-//     return BoardApiUtil.fetchAllBoards().then((boards) => {
-//       // debugger
-//       return dispatch(receiveAllBoards(boards))
-//     })
-//   }
-// }
-
-// export const createBoard = board => dispatch => BoardApiUtil.createBoard(board)
-//   .then(board => {
-//     debugger
-//     return dispatch(receiveBoard(board))
-//   },
-//     err => dipsatch(receiveBoardErrors(err.responseJSON)))

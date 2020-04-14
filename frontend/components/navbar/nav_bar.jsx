@@ -26,6 +26,11 @@ const NavBar = ({ currentUser, logout }) => {
           <li><button className='nav-item logout-button' onClick={logout}>Log out</button></li>   
           </ul>
       </nav> 
+      <div className="create-pin-dropdown">
+        <Link to="/pin-builder">
+          <button className="create-pin-button"><i className="fas fa-plus"></i></button>
+        </Link>
+      </div>
     </header>
   )
 }
