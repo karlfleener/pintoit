@@ -13,7 +13,7 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
-
+  
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
   }
@@ -121,17 +121,8 @@ class LoginForm extends React.Component {
 
         </div>
         <footer className='footer'>
-          <a>About Pintoit</a>
-          <a>Blog</a>
-          <a>Businesses</a>
-          <a>Terms of Service</a>
-          <a>Privacy Policy</a>
-          <a>Help</a>
-          <a>iPhone App</a>
-          <a>Android App</a>
-          <a>Users</a>
-          <a>Collections</a>
-          <a>Topics</a>
+          <a href='https://github.com/karlfleener' target="_blank">GitHub</a>
+          <a href='https://www.linkedin.com/in/karlfleener/' target="_blank">LinkedIn</a>
         </footer>
       </div>
     );
