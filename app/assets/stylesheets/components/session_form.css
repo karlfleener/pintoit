@@ -28,6 +28,7 @@
 
 .session-side-button:hover {
   filter: brightness(95%);
+  cursor: pointer;
 }
 
 .session-side-button:focus {

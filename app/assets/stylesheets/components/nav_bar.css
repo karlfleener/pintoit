@@ -72,6 +72,7 @@
 
 .nav-item:hover {
   filter: brightness(95%);
+  cursor: pointer;
 } 
 
 .fas {
