@@ -19,6 +19,7 @@ pin1 = Pin.create!({ id: 5, title: 'parrot', creator_id: 2})
 pin2 = Pin.create!({ id: 6, title: 'mountain creek', creator_id: 3})
 pin3 = Pin.create!({ id: 7, title: 'structure', creator_id: 1})
 pin4 = Pin.create!({ id: 8, title: 'demo pin', creator_id: 4})
+# pin7 = Pin.create({author_id: demouser.id, board_id: board2.id }) file = open('https://kim-seeds.s3.amazonaws.com/k7.jpg') pin7.photo.attach(io: file, filename: 'k7.jpg') pin7.save!
 
 board1 = Board.create!({ id: 9, title: 'animals', creator_id: 1})
 board2 = Board.create!({ id: 10, title: 'nature', creator_id: 2})

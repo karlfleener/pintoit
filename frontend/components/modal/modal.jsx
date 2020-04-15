@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import LoginFormContainer from '../session/login_form_container';
-import SignupFormContainer from '../session/signup_form_containter';
-import { signup, login } from '../../util/session_api_util';
+import PinEditFormContainer from '../pin/pin_edit_form_container'
 
 
 function Modal({ modal, closeModal }) {
@@ -12,17 +10,15 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal) {
-    case 'login':
-      component = <LoginFormContainer />;
+    case 'edit':
+      component = <PinEditFormContainer />
       break;
-      case 'signup':
-        component = <SignupFormContainer />;
-        break;
-        default:
-          return null;
-        }
-        return (
-          <div className="modal-background" onClick={closeModal}>
+    default:
+      return null;
+  }
+
+  return (
+    <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         {component}
       </div>
