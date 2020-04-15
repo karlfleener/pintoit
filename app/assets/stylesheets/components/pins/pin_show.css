@@ -12,13 +12,14 @@
   left: 32px;
   z-index: 1;
   background-color: white;
-  color: black;
+  color: #333333;
   padding: 12px;
   border-radius: 50%;
 }
 
 #show-pin-arrow:hover {
   filter: brightness(95%);
+  cursor: pointer;
 }
 
 .show-pin-box {
@@ -59,16 +60,15 @@
 
 .show-edit {
   opacity: 1;
-  color: black;
+  color: #333333;
   padding: 16px;
   background-color: white;
 }
 
 .show-edit:hover {
-  color: black;
-  padding: 16px;
   filter: brightness(95%);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .show-pin-header-right {
@@ -84,6 +84,9 @@
 }
 
 .show-pin-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #efefef;
   color: rgb(185, 185, 185);
   width: 180px;
@@ -92,9 +95,12 @@
 
 .show-pin-select:hover {
   filter: brightness(95%);
-  color: rgb(185, 185, 185);
   width: 180px;
   border-radius: 16px 0 0 16px;
+}
+
+.fa-chevron-down {
+  color: #333333;
 }
 
 .show-pin-save {

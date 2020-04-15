@@ -1,14 +1,21 @@
 import { connect } from 'react-redux';
-import { updatePin } from '../../actions/pin_actions';
+import { fetchPin, updatePin, deletePin } from '../../actions/pin_actions';
 import EditPinForm from './pin_edit_form';
+import { closeModal } from '../../actions/modal_actions'
 
-const mapStateToProps = (state, ownProps) => ({
-  pin: state.entities.pins[ownProps.match.params.pinId],
-  errors: Object.values(errors.pins)
-})
+const mapStateToProps = (state, ownProps) => {
+  return {
+    // pin: state.entities.pins[ownProps.match.params.pinId],
+    pin: Object.values(state.entities.pins)[0],
+    boards: state.entities.boards,
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
-  updatePin: pin => dispatch(updatePin(pin))
+  fetchPin: pinId => dispatch(fetchPin(pinId)),
+  updatePin: pin => dispatch(updatePin(pin)),
+  deletePin: pinId => dispatch(deletePin(pinId)),
+  closeModal: () => dispatch(closeModal()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPinForm)

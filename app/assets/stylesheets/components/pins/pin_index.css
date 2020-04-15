@@ -16,7 +16,6 @@
 }
 
 .pin-index-item-box:hover img {
-  background-color: black;
   filter: brightness(90%);
 }
 

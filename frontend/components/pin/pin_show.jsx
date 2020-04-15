@@ -4,30 +4,16 @@ import { Link, withRouter } from 'react-router-dom'
 class PinShow extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = 
-      !this.props.pin ? {title: ''} : {
-        title: this.props.pin.title,
-        description: this.props.pin.description,
-        imageUrl: this.props.pin.imageUrl,
-        creator_id: this.props.pin.creatorid
-    }
+    this.state = !this.props.pin ? { title: '' } : this.props.pin;
   }
   
   componentDidMount() {
     this.props.fetchPin(this.props.match.params.pinId)
-    .then(pin => {this.setState({
-        title: this.props.pin.title,
-        description: this.props.pin.description,
-        imageUrl: this.props.pin.imageUrl,
-        creator_id: this.props.pin.creator_id
-      })
-    });
+    .then(pin => {this.setState(this.props.pin)})
   }
 
   render() {
-    console.log(this.props)
-    
+    // console.log(this.props)
     let editPin; 
     if (!this.props.pin) {
       return <div></div>
@@ -47,17 +33,19 @@ class PinShow extends React.Component {
             <div className='show-pin-info-container'>
 
               <header className="show-pin-header">
-                <Link to={`/pins/${this.props.pin.id}/edit`}><i className={`fas fa-pen ${editPin}`}></i></Link>
-                
+                <i onClick={() => this.props.openModal('edit')} className={`fas fa-pen ${editPin}`}></i>
                 <div className="show-pin-header-right">
-                  <button className='show-pin-select'>Select</button>
+                  <button className='show-pin-select'>
+                    <div>Select</div>
+                    <i className="fas fa-chevron-down"></i>
+                  </button>
                   <button className='show-pin-save'>Save</button>
                 </div>
               </header>
 
               <div className="show-pin-info">
-                <div className='show-pin-title'>{this.state.title}</div>
-                <div className='show-pin-description'>{this.state.description}</div>
+                <div className='show-pin-title'>{this.props.pin.title}</div>
+                <div className='show-pin-description'>{this.props.pin.description}</div>
               </div>
             </div>
           </div>
