@@ -1,32 +1,152 @@
 .profile-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
+  width: 100%;
   top: 74px;
 }
 
-.profile-edit-header {
+.profile-edit-header-bar {
   position: fixed;
+  top: 74px;
+  width: 100%;
+  height: 74px;
   background-color: white;
-  opacity: 0.9px;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.profile-create-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 94px;
+  background-color: white;
+  z-index: 1;
 }
 
 .profile-create-pin-board-btn {
+  position: fixed;
   padding: 6px 8px 6px 8px;
   border-radius: 24px;
   outline: none;
   border: 0;
-  background-color: white;
   box-sizing: border-box;
   cursor: pointer;
 }
 
-.profile-create-pin-board-btn:hover {
-  filter: brightness(90%);
+.profile-create-pin-board-content {
+  display: none;
+  position: absolute;
+  left: 42px;
+  top: -20px; 
+  background-color: white;
+  min-width: 184px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
+  border-radius: 24px;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.profile-create-pin-board-btn:focus {
-  border: 4px solid rgb(82, 197, 199);
-  outline: none;
+.profile-create-pin-board-content div {
+  display: block;
+  padding: 12px 20px;
+  background-color: white;
 }
+
+.profile-create-hover {
+  position: absolute;
+  left: 32px;
+  top: -6px;
+  width: 12px;
+  height: 48px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.profile-create-pin-board-content div:hover {
+  filter: brightness(95%);
+}
+
+.profile-create-pin-board-dropdown:hover .profile-create-pin-board-content,
+.profile-create-hover:hover .profile-create-pin-board-content {
+  display: block;
+}
+
+.profile-create-pin-board-dropdown:hover .profile-create-pin-board-btn {
+  filter: brightness(95%);
+}
+
+.profile-info-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 74px;
+  background-color: white;
+  height: 132px;
+  width: 100%;
+}
+
+.profile-info-name {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.profile-follow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 188px;
+}
+
+.profile-boards-pins-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 52px;
+  top: 64px;
+  background-color: white;
+}
+
+.profile-boards-pins-header button {
+  padding: 12px 12px;
+  border-radius: 24px;
+  background-color: white;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.profile-boards-pins-header button:hover {
+  filter: brightness(95%);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.profile-boards-pins-header button:focus {
+  background-color: #333333;
+  color: white;
+}
+
+.profile-board-index-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  top: 64px;
+  background-color: turquoise;
+}
+
+
 
 

@@ -89,7 +89,7 @@
   white-space: nowrap;
 }
 
-.create-pin-button {
+ /* .create-pin-button {
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -100,8 +100,67 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
   z-index: 5;
+} */
+
+/* .create-pin-button:hover {
+filter: brightness(90%);
+}  */
+
+.create-pin-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  padding: 6px 8px 6px 8px;
+  border-radius: 24px;
+  outline: none;
+  border: 0;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
+  z-index: 5;
+  cursor: pointer;
 }
 
-.create-pin-button:hover {
-  filter: brightness(90%);
+.create-pin-content {
+  display: none;
+  position: fixed;
+  right: 32px;
+  bottom: 70px;
+  background-color: white;
+  min-width: 184px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
+  border-radius: 24px;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.create-pin-hover {
+  position: fixed;
+  right: 36px;
+  bottom: 56px;
+  width: 120px;
+  height: 18px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.create-pin-content div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background-color: white;
+}
+
+.create-pin-content .create-pin:hover {
+  filter: brightness(95%);
+} 
+
+.create-pin-dropdown:hover .create-pin-content,
+.create-pin-hover:hover .create-pin-content {
+  display: block;
+}
+
+.create-pin-dropdown:hover .create-pin-btn {
+  filter: brightness(95%)
 }
