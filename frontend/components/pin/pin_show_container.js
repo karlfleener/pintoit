@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   pin: state.entities.pins[ownProps.match.params.pinId],
   boards: state.entities.boards,
   currentUser: state.session.currentUser,
-  }
+}
 }
 
 const mapDispatchToProps = dispatch => ({
