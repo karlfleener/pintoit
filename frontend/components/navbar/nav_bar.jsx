@@ -20,7 +20,8 @@ const NavBar = ({ currentUser, logout }) => {
             </li>
             <li className='nav-item notification'><i className="fas fa-bell"></i></li>  
             <li className='nav-item inbox'><i className="fas fa-comment-dots"></i></li>      
-            <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}>
+            {/* <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}> */}
+            <Link to={`/users/${currentUser.id}`}>
               <li className="nav-item profile">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</li>
             </Link> 
           <li><button className='nav-item logout-button' onClick={logout}>Log out</button></li>   

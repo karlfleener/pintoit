@@ -6,9 +6,9 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_containter';
 
 import NavBarContainer from './navbar/nav_bar_container';
+import ProfileContainer from './profile/profile_container';
 import PinShowContainer from './pin/pin_show_container';
 import PinCreateFormContainer from './pin/pin_create_form_container'
-import PinEditFormContainer from './pin/pin_edit_form_container';
 import PinIndexContainter from './pin/pin_index_container';
 
 import Modal from './modal/modal';
@@ -23,9 +23,9 @@ const App = () => (
     <ProtectedRoute path='/' component={NavBarContainer}/>
   
   <Switch>
+    <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
     <ProtectedRoute exact path='/pins/:pinId' component={PinShowContainer} />
     <ProtectedRoute exact path='/pin-builder' component={PinCreateFormContainer} />
-    {/* <ProtectedRoute exact path='/pins/:pinId/edit' component={PinEditFormContainer} /> */}
     <ProtectedRoute exact path='/' component={PinIndexContainter} />
    </Switch> 
   </div>
