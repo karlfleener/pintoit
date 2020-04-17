@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   // debugger
   return {
     currentUser: state.session.currentUser,
-    user: state.entities.users[ownProps.match.params.userId],
+    userId: Number(ownProps.match.params.userId),
+    user: state.entities.users[Number(ownProps.match.params.userId)],
     pins: '',
     boards: '',
   }

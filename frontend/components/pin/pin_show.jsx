@@ -9,7 +9,7 @@ class PinShow extends React.Component {
   
   componentDidMount() {
     this.props.fetchPin(this.props.match.params.pinId)
-    .then(pin => {this.setState(this.props.pin)})
+    .then(pin => this.setState(this.props.pin))
   }
 
   render() {

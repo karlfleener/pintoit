@@ -1,20 +1,20 @@
-// import * as UsersApiUtil from '../util/users_api_util';
+import * as UsersApiUtil from '../util/users_api_util';
 
-// export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
-// export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+export const RECEIVE_USER = 'RECEIVE_USER';
 
-// const receiveAllUsers = users => ({
-//   type: RECEIVE_ALL_USERS,
-//   users
-// })
+const receiveAllUsers = users => ({
+  type: RECEIVE_ALL_USERS,
+  users
+})
 
-// const receiveUser = user => ({
-//   type: RECEIVE_USER,
-//   user
-// })
+const receiveUser = user => ({
+  type: RECEIVE_USER,
+  user
+})
 
-// export const fetchAllUsers = () => dispatch => UsersApiUtil.fetchAllUsers()
-//   .then(users => dispatch(receiveAllUsers(users)))
+export const fetchAllUsers = () => dispatch => UsersApiUtil.fetchAllUsers()
+  .then(users => dispatch(receiveAllUsers(users)))
 
-// export const fetchUser = userId => dispatch => UsersApiUtil.fetchUser(userId)
-//   .then(user => dispatch(receiveUser(user)))
+export const fetchUser = userId => dispatch => UsersApiUtil.fetchUser(userId)
+  .then(user => dispatch(receiveUser(user)))
