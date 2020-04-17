@@ -28,6 +28,7 @@
   justify-content: flex-end;
   width: 100%;
   height: 10%;
+  margin-top: 24px;
 }
 
 .create-pin-header button {
@@ -39,6 +40,8 @@
 }
 
 .create-pin-select {
+  display: flex;
+  justify-content: space-between;
   background-color: #efefef;
   color: rgb(185, 185, 185);
   width: 180px;
