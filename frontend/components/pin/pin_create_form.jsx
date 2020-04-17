@@ -92,13 +92,11 @@ class PinCreateForm extends React.Component {
         <div className='create-pin-form-box'>
 
           <header className="create-pin-header">
-            <div>
               <button className="create-pin-select">
                 <div>Select</div>
                 <i className="fas fa-chevron-down"></i>
               </button>
               <button className="create-pin-save" onClick={this.handleSubmit}>Save</button>
-            </div>
           </header>
 
           <form className='create-pin-form'>
