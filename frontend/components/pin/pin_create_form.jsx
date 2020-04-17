@@ -59,6 +59,7 @@ class PinCreateForm extends React.Component {
     
     if (this.props.errors[0].includes("Image An image is required to create a Pin.")) {
       error.push("An image is required to create a Pin.");
+      // debugger
       return error
     } else if (this.props.errors[0].includes("Title can't be blank")) {
       error.push("Title can't be blank.");
