@@ -7,6 +7,7 @@ import SignupFormContainer from './session/signup_form_containter';
 
 import NavBarContainer from './navbar/nav_bar_container';
 import ProfileContainer from './profile/profile_container';
+import ProfilePinsContainer from './profile/profile_container';
 import PinShowContainer from './pin/pin_show_container';
 import PinCreateFormContainer from './pin/pin_create_form_container'
 import PinIndexContainter from './pin/pin_index_container';
@@ -24,6 +25,7 @@ const App = () => (
   
   <Switch>
     <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
+    <ProtectedRoute exact path='/users/:userId/pins' component={ProfilePinsContainer} />
     <ProtectedRoute exact path='/pins/:pinId' component={PinShowContainer} />
     <ProtectedRoute exact path='/pin-builder' component={PinCreateFormContainer} />
     <ProtectedRoute exact path='/' component={PinIndexContainter} />

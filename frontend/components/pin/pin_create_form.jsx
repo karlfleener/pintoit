@@ -80,6 +80,7 @@ class PinCreateForm extends React.Component {
   
   render(){
     console.log(this.state);
+    
     const imageOutline = this.imageErrors() ? 'image-error-outline' : '';
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} alt='pin image preview'/> : null;
     const imagePreviewClass = this.state.imageUrl ? 'show' : '';
