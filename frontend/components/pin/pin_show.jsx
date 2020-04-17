@@ -33,7 +33,7 @@ class PinShow extends React.Component {
             <div className='show-pin-info-container'>
 
               <header className="show-pin-header">
-                <i onClick={() => this.props.openModal('edit')} className={`fas fa-pen ${editPin}`}></i>
+                <div onClick={() => this.props.openModal('edit')}><i className={`fas fa-pen ${editPin}`}></i></div>
                 <div className="show-pin-header-right">
                   <button className='show-pin-select'>
                     <div>Select</div>
