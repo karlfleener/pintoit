@@ -53,7 +53,7 @@
   color: transparent;
 }
 
-.search-bar i {
+.search-bar .fa-search {
   position: absolute;
   left: 0;
   top: 6px;
@@ -142,6 +142,11 @@ filter: brightness(90%);
   height: 18px;
   z-index: 2;
   cursor: pointer;
+}
+
+.svg-inline--fa {
+  font-size: 24px;
+  color: #8e8e8e;
 }
 
 .create-pin-content div {
