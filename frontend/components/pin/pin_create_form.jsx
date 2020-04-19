@@ -79,12 +79,12 @@ class PinCreateForm extends React.Component {
     }
   }
   
-  render(){
+  render() {
     console.log(this.state);
-    
     const imageOutline = this.imageErrors() ? 'image-error-outline' : '';
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} alt='pin image preview'/> : null;
     const imagePreviewClass = this.state.imageUrl ? 'show' : '';
+    debugger
     if (!this.props.pin) 
     return (
       
@@ -107,7 +107,7 @@ class PinCreateForm extends React.Component {
               <div className={`${imageOutline}`}></div>
               <i className="fas fa-arrow-circle-up"></i>
               <div className="click-upload">Click to upload</div>
-              <i onClick={this.removeImagePreview} className={`fas fa-trash trash-${imagePreviewClass}`}></i>
+              <span onClick={this.removeImagePreview} className={`trash trash-${imagePreviewClass}`}><i className='fas fa-trash'></i></span>
               <div id='image-error'>{this.imageErrors()}</div>
             </div>
 
