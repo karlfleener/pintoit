@@ -37,23 +37,3 @@ When viewing pins, if the user is also the creator the pin, they are allowed per
 All pins that the user has created are able to be viewed on their profile page.
 
 ![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/profile.png)
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
