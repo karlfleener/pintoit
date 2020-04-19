@@ -18,7 +18,7 @@ Pintoit is a clone of Pinterest that allows users to view and create new pins th
 
 Pin creation
 
-![](app/assets/images/pin/pin_create.png)
+![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/pin_create.png)
 
 Things you may want to cover:
 
