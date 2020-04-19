@@ -18,7 +18,7 @@ Pintoit is a clone of Pinterest that allows users to view and create new pins th
 
 ### Creating Pins
 
-Pins are able to be created through a form where users are able to upload an image, create a name for the pin and describe the pin if they choose to.
+Pins are able to be created through a form where users are able to upload an image, create a name for the pin and describe the pin if they choose to. To access this form, simply click on the + icon in the bottom right corner of any page.
 
 ![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/pin_create.png)
 
@@ -28,7 +28,7 @@ Once a pin has been created the homepage updates and gets populated with pins cr
 
 ### Editing Pins
 
-When viewing pins, if the user is also the creator the pin, they are allowed permission to edit the title and description or delete the pin all together.
+When viewing pins, if the user is also the creator the pin, they are allowed permission to edit the title and description or delete the pin all together. To access the edit form click the pencil icon at the top of the pin's show page.
 
 ![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/pin_edit.png)
 
