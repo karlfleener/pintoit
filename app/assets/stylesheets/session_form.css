@@ -6,7 +6,14 @@
   text-align: center;
   min-height: 100vh;
   /* background-color: rgb(185, 185, 185); */
-  background-image: url('../../images/pintoit.png');
+  background: url("pintoit.png");
+
+}
+
+.session-container span > img {
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: -2;
 }
 
 .session-side-button {

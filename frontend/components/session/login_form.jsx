@@ -74,6 +74,7 @@ class LoginForm extends React.Component {
 
     return (
       <div className='session-container'>
+        {/* <img src={window.background} className="session-background" alt="Pintoit Splash Background" /> */}
         <Link to='/signup'><button className="session-side-button">Sign up</button></Link>
 
         <div className='session-form-container'>
