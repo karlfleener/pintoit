@@ -37,3 +37,11 @@ When viewing pins, if the user is also the creator the pin, they are allowed per
 All pins that the user has created are able to be viewed on their profile page.
 
 ![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/profile.png)
+
+### Instructions
+
+Run commands after download
+1. bundle install
+2. npm install
+3. bundle exec rails server
+4. npm run webpack
