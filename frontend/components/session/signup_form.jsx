@@ -138,7 +138,7 @@ class SignupForm extends React.Component {
 
         </div>
         <footer className='footer'>
-          <a href='https://github.com/karlfleener' target="_blank">GitHub</a>
+          <a href='https://github.com/karlfleener/pintoit' target="_blank">GitHub</a>
           <a href='https://www.linkedin.com/in/karlfleener/' target="_blank">LinkedIn</a>
         </footer>
      </div>
