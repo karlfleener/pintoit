@@ -1,24 +1,39 @@
-# README
+# Welcome to Pintoit!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pintoit is a clone of Pinterest that allows users to view and create new pins that they are interested in.
 
-Things you may want to cover:
+[Pintoit](https://pintoit.herokuapp.com/)
 
-* Ruby version
+## Technologies
+* Ruby on Rails
+* Javascript
+* React
+* Redux
+* HTML
+* CSS
+* Postgres
+* AWS photo storage
 
-* System dependencies
+## Feature Highlights
 
-* Configuration
+### Creating Pins
 
-* Database creation
+Pins are able to be created through a form where users are able to upload an image, create a name for the pin and describe the pin if they choose to. To access this form, simply click on the + icon in the bottom right corner of every page.
 
-* Database initialization
+![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/pin_create.png)
 
-* How to run the test suite
+Once a pin has been created the homepage updates and gets populated with pins created from all users.
 
-* Services (job queues, cache servers, search engines, etc.)
+![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/homepage.png)
 
-* Deployment instructions
+### Editing Pins
 
-* ...
+When viewing pins, if the user is also the creator the pin, they are allowed permission to edit the title and description or delete the pin all together. To access the edit form click the pencil icon at the top of the pin's show page.
+
+![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/pin_edit.png)
+
+### Profile
+
+All pins that the user has created are able to be viewed on their profile page.
+
+![](https://github.com/karlfleener/pintoit/blob/master/app/assets/images/pins/profile.png)
