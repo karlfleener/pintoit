@@ -14,7 +14,11 @@
      
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
 
-    <script type="text/javascript"> window.logo="<%= image_url('pintoit_logo.png') %>"</script>
+    <script type="text/javascript"> 
+      window.background="<%= image_url('pintoit.png') %>"
+      window.logo="<%= image_url('pintoit_logo.png') %>"
+    </script>
+    
     <% if current_user %>
         <script>
           window.currentUser = {

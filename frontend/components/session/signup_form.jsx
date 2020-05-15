@@ -83,6 +83,7 @@ class SignupForm extends React.Component {
 
     return (
      <div className='session-container'>
+        {/* <span><img src={window.background} className="nav-logo" alt="Pintoit Logo" /></span> */}
         <Link to='/login'><button className="session-side-button">Log in</button></Link>
         
         <div className='session-form-container'>
