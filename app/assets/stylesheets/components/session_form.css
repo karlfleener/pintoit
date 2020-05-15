@@ -5,7 +5,8 @@
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-color: rgb(185, 185, 185);
+  /* background-color: rgb(185, 185, 185); */
+  background-image: url('../../images/pintoit.png');
 }
 
 .session-side-button {

@@ -112,7 +112,7 @@ class LoginForm extends React.Component {
               <button onClick={this.demoLogin} className="demo-login">Demo Log in</button>
 
 
-              <div className='terms-of-service'> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div>
+              {/* <div className='terms-of-service'> By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div> */}
 
               <Link to='/signup'><div className='session-form-other-form'>Not on Pintoit yet? Sign up</div></Link>
 
@@ -121,8 +121,9 @@ class LoginForm extends React.Component {
 
         </div>
         <footer className='footer'>
-          <a href='https://github.com/karlfleener' target="_blank">GitHub</a>
           <a href='https://www.linkedin.com/in/karlfleener/' target="_blank">LinkedIn</a>
+          <a href='https://angel.co/u/karlfleener' target="_blank">AngelList</a>
+          <a href='https://github.com/karlfleener' target="_blank">GitHub</a>
         </footer>
       </div>
     );

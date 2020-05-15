@@ -81,7 +81,6 @@ class SignupForm extends React.Component {
     const passwordOutline = this.passwordErrors() ? 'error-outline' : '';
     const ageOutline = this.ageErrors() ? 'error-outline' : '';
 
-    console.log(this.state)
     return (
      <div className='session-container'>
         <Link to='/login'><button className="session-side-button">Log in</button></Link>
@@ -129,7 +128,7 @@ class SignupForm extends React.Component {
                 value="Continue"
               />
 
-              <div className='terms-of-service'>By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div>
+              {/* <div className='terms-of-service'>By continuing, you agree to Pintoit's <a>Terms of Service</a>, <a>Privacy Policy</a></div> */}
 
               <Link to='/login'><div className="session-form-other-form">Already a member? Log in</div></Link>
 
@@ -138,8 +137,9 @@ class SignupForm extends React.Component {
 
         </div>
         <footer className='footer'>
-          <a href='https://github.com/karlfleener/pintoit' target="_blank">GitHub</a>
           <a href='https://www.linkedin.com/in/karlfleener/' target="_blank">LinkedIn</a>
+          <a href='https://angel.co/u/karlfleener' target="_blank">AngelList</a>
+          <a href='https://github.com/karlfleener/pintoit' target="_blank">GitHub</a>
         </footer>
      </div>
     );
