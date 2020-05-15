@@ -36,28 +36,3 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
  
-
-// class Modal extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-      // this.state = {login: true};
-    // }
-  
-  //   render() {
-  //     let component;
-  //     let modalButton;
-  //     // if (this.state.login) {
-  //       component = <LoginFormContainer />;
-  //       modalButton = <button className="modal-button" onClick={e => this.setState({ login: !(this.state.login) })}>Sign up</button>;
-  //     // } else {
-  //       // component = <SignupFormContainer />;
-  //       // modalButton = <button className="modal-button" onClick={e => this.setState({ login: !(this.state.login) })}>Log in</button>;
-  //     // }
-  //     return (
-  //       <div className="modal-background" onClick={closeModal}>
-  //         <div className="modal-altbutton">{modalButton}</div>
-  //         <div className="modal-child" onClick={e => e.stopPropagation()}>{component}</div>
-  //       </div>
-  //     );
-  //   }
-  // }
