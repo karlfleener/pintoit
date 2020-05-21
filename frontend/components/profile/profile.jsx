@@ -37,17 +37,20 @@ class Profile extends React.Component {
     // debugger
     return (
       <div className='profile-container'>
+
         <div className="profile-edit-header-bar"></div>
+        
         <div className='profile-create-header'>
           <div className="profile-create-pin-board-dropdown">
             <button className='profile-create-pin-board-btn'><i className="fas fa-plus"></i></button>
-            <div className='profile-create-hover'></div>
             <div className='profile-create-pin-board-content'>
               <div>Create Board</div>
             <Link to='/pin-builder'><div>Create Pin</div></Link>
             </div>
+            <div className='profile-create-hover'></div>
           </div>
         </div>
+
         <div className='profile-info-header'>
           <div className='profile-info-name'>{user.email.slice(0, user.email.indexOf('@'))}</div>
             <div className='profile-follow-container'>
@@ -56,11 +59,13 @@ class Profile extends React.Component {
               <div># following</div>
             </div>
         </div>
+
         <div className='profile-boards-pins-header'>
         {/* <Link to='/users/3'>user3</Link> */}
           <Link to={`/users/${user.id}/boards`}><button>Boards</button></Link>
           <Link to={`/users/${user.id}/pins`}><button>Pins</button></Link>
         </div>
+
         <div className='profile-pin-index-container'>
           {userPins}
         </div>
