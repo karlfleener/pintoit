@@ -1,6 +1,6 @@
 .nav-menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
@@ -8,6 +8,12 @@
   height: 74px;
   background-color: white;
   z-index: 1;
+}
+
+.nav-menu li {
+  display: flex;
+  justify-content: space-around;
+  padding: 18px;
 }
 
 .nav-logo {
