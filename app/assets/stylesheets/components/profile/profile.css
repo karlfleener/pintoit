@@ -1,8 +1,4 @@
 .profile-container {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   position: relative;
   width: 100%;
   top: 72px;
@@ -32,7 +28,6 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  /* top: 94px; */
   z-index: 1;
   text-align: center;
   margin: 0 auto;
@@ -149,24 +144,14 @@
   color: white;
 }
 
-/* .profile-board-index-container {
-  display: flex;
-  position: relative;
-  width: 100%;
-  top: 64px;
-  z-index: 999;
-  background-color: turquoise; 
-} */
-
 .profile-pin-index-container {
   position: relative;
   top: 72px;
   /* column-count: 7; */
   column-gap: 24px;
   margin: 0 24px 24px 24px;
-  /* width: 100%; */
-  text-align: center;
   z-index: 0;
+  text-align: center;
 }
 
 

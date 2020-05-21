@@ -4,14 +4,15 @@
   column-count: 7;
   column-gap: 24px;
   margin: 0 24px 24px 24px;
+  z-index: 0; 
   text-align: center;
-  z-index: 0;
 }
 
 .pin-index-item-container {
   display: inline-block;
   width: 236px;
   margin-bottom: 18px;
+  text-align: left;
 }
 
 .pin-index-item-container:hover img {
