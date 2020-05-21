@@ -5,7 +5,7 @@ const PinIndexItem = ({ pin }) => {
   // debugger
   return (
     <Link to={`/pins/${pin.id}`}>
-      <div className='pin-index-item-box'>
+      <div className='pin-index-item-container'>
         <div className='pin-index-item-image'>
           <img src={pin.imageUrl} alt={pin.title}/>
         </div>
