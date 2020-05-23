@@ -5,6 +5,7 @@ class PinShow extends React.Component {
   constructor(props) {
     super(props)
     this.state = !this.props.pin ? { title: '' } : this.props.pin;
+    // this.goBack = this.goBack.bind(this);
   }
   
   componentDidMount() {
@@ -12,7 +13,13 @@ class PinShow extends React.Component {
     .then(pin => this.setState(this.props.pin))
   }
 
+  // goBack() {
+  //   debugger
+  //   this.props.history.goBack()
+  // }
+
   render() {
+    debugger
     // console.log(this.props)
     let editPin; 
     if (!this.props.pin) {
@@ -23,7 +30,7 @@ class PinShow extends React.Component {
     
     return (
       <div>
-        <Link to='/'><i id='show-pin-arrow' className="fas fa-arrow-left"></i></Link>
+        <div onClick={() => this.props.history.goBack()}><i id='show-pin-arrow' className="fas fa-arrow-left"></i></div>
         <div className="show-pin-container">
           <div className="show-pin-box">
             <div className='show-pin-image-container'>
@@ -55,5 +62,5 @@ class PinShow extends React.Component {
   }
 }
 
-export default PinShow;
+export default withRouter(PinShow);
 

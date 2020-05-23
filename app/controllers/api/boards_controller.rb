@@ -1,3 +1,5 @@
+require "byebug"
+
 class Api::BoardsController < ApplicationController
   def new
     # displays the form to create a board (modal)
@@ -7,6 +9,7 @@ class Api::BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    @board.creator_id = current_user.id
     if @board.save
       render "api/boards/show"
     else
@@ -16,8 +19,10 @@ class Api::BoardsController < ApplicationController
 
   def index
     # needs to be the all boards of certain user
+    # @boards = @user.boards
     @boards = Board.all
-    render "api/boards/index"
+    render :index
+    # render "api/boards/index"
   end
 
   def show
@@ -45,12 +50,15 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-    @board = current_user.boards.find(params[:id])
-    if @board.destroy
-      render 'api/boards/show'
-    else
-      render json: ["Nothing to delete"], status: 404
-    end
+    # @board = current_user.boards.find(params[:id])
+    # if @board.destroy
+    #   render 'api/boards/show'
+    # else
+    #   render json: ["Nothing to delete"], status: 404
+    # end
+    @board = Board.find(params[:id])
+    @board.destroy
+    render 'api/boards/show'
   end
 
   private
