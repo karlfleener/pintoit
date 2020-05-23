@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PinIndexItem from '../pin/pin_index_item'
 
 
-class Profile extends React.Component {
+class BoardShow extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,10 +22,10 @@ class Profile extends React.Component {
   }
 
   render() {
-    // debugger
     // console.log(this.props);
     // console.log(this.state);
     const { user } = this.props;
+    debugger
 
     if (!user) return <div></div>; 
 
@@ -53,11 +53,11 @@ class Profile extends React.Component {
 
         <div className='profile-info-header'>
           <div className='profile-info-name'>{user.email.slice(0, user.email.indexOf('@'))}</div>
-            <div className='profile-follow-container'>
+            {/* <div className='profile-follow-container'>
               <div># followers</div> 
               <div>/</div>
               <div># following</div>
-            </div>
+            </div> */}
         </div>
 
         <div className='profile-boards-pins-header'>
@@ -74,4 +74,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default BoardShow;
