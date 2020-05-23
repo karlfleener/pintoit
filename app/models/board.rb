@@ -17,6 +17,10 @@ class Board < ApplicationRecord
     foreign_key: :creator_id,
     class_name: :User
 
+  has_many :pins,
+    foreign_key: :board_id,
+    class_name: :Pin
+
   has_many :board_pins,
     foreign_key: :board_id,
     class_name: :BoardPin

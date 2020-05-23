@@ -5,12 +5,14 @@ class PinShow extends React.Component {
   constructor(props) {
     super(props)
     this.state = !this.props.pin ? { title: '' } : this.props.pin;
-    // this.goBack = this.goBack.bind(this);
+    // this.user = {};
+    // this.userBoards = {};
   }
   
   componentDidMount() {
+    this.props.fetchUser(this.props.currentUser.id)
     this.props.fetchPin(this.props.match.params.pinId)
-    .then(pin => this.setState(this.props.pin))
+    .then(pin => this.setState(this.props.pin));
   }
 
   // goBack() {
@@ -19,14 +21,27 @@ class PinShow extends React.Component {
   // }
 
   render() {
-    debugger
+    // debugger
     // console.log(this.props)
     let editPin; 
     if (!this.props.pin) {
-      return <div></div>
+      return <div></div>;
     } else {
       editPin = Number(this.props.currentUser.id) === this.props.pin.creator_id ? 'show-edit' : '';
     }
+
+    if (!this.props.user) return <div></div>;
+
+    const { user } = this.props
+    const boardTitles = user.boards.map((board, idx) => {
+      // let boardTitles = [];
+      // boardTitles.push(board.title)
+      // return boardTitles
+      // debugger
+      return <div className="show-pin-select-board-title">{Object.values(board)[0].title}</div>;
+    })
+
+    // debugger
     
     return (
       <div>
@@ -41,11 +56,25 @@ class PinShow extends React.Component {
 
               <header className="show-pin-header">
                 <div onClick={() => this.props.openModal('edit')}><i className={`fas fa-pen ${editPin}`}></i></div>
+        
                 <div className="show-pin-header-right">
-                  <button className='show-pin-select'>
+
+                  {/* <button className='show-pin-select'>
                     <div>Select</div>
                     <i className="fas fa-chevron-down"></i>
-                  </button>
+                  </button> */}
+
+                  <div className="show-pin-board-dropdown">
+                    <button className='show-pin-select'>
+                      <div>Select</div>
+                      <i className="fas fa-chevron-down"></i>
+                    </button>
+                    <div className='show-pin-select-content'>
+                        { boardTitles }
+                    </div>
+                  </div>
+
+
                   <button className='show-pin-save'>Save</button>
                 </div>
               </header>

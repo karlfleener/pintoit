@@ -29,7 +29,9 @@ const NavBar = ({ currentUser, logout }) => {
       </nav> 
       <div className="create-pin-dropdown">
         <div className='create-pin-hover'></div>
-        <button className='create-pin-btn'><i className="fas fa-plus"></i></button>
+        <button className='create-pin-btn'>
+          <i className="fas fa-plus"></i>
+        </button>
         <div className='create-pin-content'>
           <Link to='/pin-builder'>
             <div className='create-pin'>

@@ -83,6 +83,11 @@
   cursor: pointer;
 }
 
+.show-pin-board-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .show-pin-select {
   display: flex;
   justify-content: space-between;
@@ -97,6 +102,37 @@
   filter: brightness(95%);
   width: 180px;
   border-radius: 16px 0 0 16px;
+}
+
+.show-pin-select-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 184px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
+  border-radius: 20px;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.show-pin-select-content div {
+  padding: 12px;
+  display: block;
+  background-color: white;
+}
+
+.show-pin-select-content div:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+} 
+
+.show-pin-board-dropdown:hover .show-pin-select-content {
+  display: block;
+}
+
+.show-pin-board-dropdown:hover .show-pin-select {
+  filter: brightness(95%)
 }
 
 .fa-chevron-down {
@@ -132,3 +168,4 @@
 .show-pin-description {
   font-weight: 500;
 }
+
