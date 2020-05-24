@@ -85,7 +85,6 @@
 
 .show-pin-board-dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .show-pin-select {
@@ -93,9 +92,15 @@
   justify-content: space-between;
   align-items: center;
   background-color: #efefef;
-  color: rgb(185, 185, 185);
   width: 180px;
   border-radius: 16px 0 0 16px;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
 }
 
 .show-pin-select:hover {
@@ -107,6 +112,7 @@
 .show-pin-select-content {
   display: none;
   position: absolute;
+  text-align: left;
   background-color: white;
   min-width: 184px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;

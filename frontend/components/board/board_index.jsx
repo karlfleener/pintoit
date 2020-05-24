@@ -6,11 +6,12 @@ import BoardIndexItem from './board_index_item'
 class ProfileBoardIndex extends React.Component {
   constructor(props) {
     super(props);
-
+    // this.activeButton = this.activeButton.bind(this);
   }
 
   componentDidMount() {
     // debugger
+    this.props.fetchAllBoards()
     this.props.fetchUser(this.props.userId)
   }
 
@@ -21,18 +22,22 @@ class ProfileBoardIndex extends React.Component {
     }
   }
 
+
+    
+
   render() {
-    // console.log(this.props);
-    // console.log(this.state);
-    const { user } = this.props;
-    debugger
+    const { user, allBoards } = this.props;
 
     if (!user) return <div></div>;
+    if (!allBoards) return <div></div>;
 
-    const userBoards = user.boards.map((board, idx) => {
-      let creatorId = Object.values(board)[0].creator_id
-      return <BoardIndexItem key={idx} creatorId={creatorId} board={Object.values(board)[0]} />
+    let userBoardsArray = Object.values(allBoards).filter(board => {
+      return board.creator_id === user.id
     })
+
+    const userBoards = userBoardsArray.map((board, idx) => {
+        return <BoardIndexItem key={idx} board={board} />
+      })
 
     // debugger
     return (
@@ -44,7 +49,7 @@ class ProfileBoardIndex extends React.Component {
           <div className="profile-create-pin-board-dropdown">
             <button className='profile-create-pin-board-btn'><i className="fas fa-plus"></i></button>
             <div className='profile-create-pin-board-content'>
-              <div>Create Board</div>
+              <Link to='/boardmodal'><div>Create Board</div></Link>
               <Link to='/pin-builder'><div>Create Pin</div></Link>
             </div>
             <div className='profile-create-hover'></div>
@@ -62,11 +67,11 @@ class ProfileBoardIndex extends React.Component {
 
         <div className='profile-boards-pins-header'>
           {/* <Link to='/users/3'>user3</Link> */}
-          <Link to={`/users/${user.id}/boards`}><button>Boards</button></Link>
-          <Link to={`/users/${user.id}/pins`}><button>Pins</button></Link>
+          <Link to={`/users/${user.id}/boards`}><button className="profile-button-boards">Boards</button></Link>
+          <Link to={`/users/${user.id}/pins`}><button className="profile-button-pins">Pins</button></Link>
         </div>
 
-        <div className='profile-pin-index-container'>
+        <div className='profile-board-index-container'>
           {userBoards}
         </div>
       </div>

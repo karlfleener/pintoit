@@ -16,7 +16,13 @@ class PinCreateForm extends React.Component {
     
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     this.removeImagePreview = this.removeImagePreview.bind(this);
+  }
+
+  componentDidMount() {
+    // debugger
+    this.props.fetchUser(this.props.currentUser.id)
   }
 
   handleSubmit(e) {
@@ -33,6 +39,14 @@ class PinCreateForm extends React.Component {
       this.props.history.push(`/pins/${pin.pin.id}`)}, (err) => {
       this.setState({ errors: this.renderErrors() })
     })
+  }
+
+  handleSelect(e) {
+    e.preventDefault();
+    let selected = document.getElementsByClassName("show-pin-select")[0];
+    let board = e.currentTarget;
+    debugger;
+    selected.innerText = board.innerText;
   }
 
   update(field) {
@@ -80,22 +94,28 @@ class PinCreateForm extends React.Component {
   }
   
   render() {
-    console.log(this.state);
     const imageOutline = this.imageErrors() ? 'image-error-outline' : '';
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} alt='pin image preview'/> : null;
     const imagePreviewClass = this.state.imageUrl ? 'show' : '';
     debugger
-    if (!this.props.pin) 
+    if (!this.props.user) return <div></div>
+
+    const { user } = this.props
+    const boardTitles = user.boards.map((board, idx) => {
+      return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
+    })
     return (
-      
       <div className='create-pin-container'>
         <div className='create-pin-form-box'>
 
           <header className="create-pin-header">
-              <button className="create-pin-select">
-                <div>Select</div>
-                <i className="fas fa-chevron-down"></i>
-              </button>
+            <div className="show-pin-board-dropdown">
+              <button className='show-pin-select'>Select</button>
+              <i className="fas fa-chevron-down select-arrow"></i>
+              <div className='show-pin-select-content'>
+                {boardTitles}
+              </div>
+            </div>
               <button className="create-pin-save" onClick={this.handleSubmit}>Save</button>
           </header>
 

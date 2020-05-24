@@ -5,20 +5,22 @@ class PinShow extends React.Component {
   constructor(props) {
     super(props)
     this.state = !this.props.pin ? { title: '' } : this.props.pin;
-    // this.user = {};
-    // this.userBoards = {};
   }
   
   componentDidMount() {
+    debugger
     this.props.fetchUser(this.props.currentUser.id)
     this.props.fetchPin(this.props.match.params.pinId)
     .then(pin => this.setState(this.props.pin));
   }
 
-  // goBack() {
-  //   debugger
-  //   this.props.history.goBack()
-  // }
+  handleSelect(e) {
+    e.preventDefault();
+    let selected = document.getElementsByClassName("show-pin-select")[0];
+    let board = e.currentTarget;
+    debugger;
+    selected.innerText = board.innerText;
+  }
 
   render() {
     // debugger
@@ -34,11 +36,7 @@ class PinShow extends React.Component {
 
     const { user } = this.props
     const boardTitles = user.boards.map((board, idx) => {
-      // let boardTitles = [];
-      // boardTitles.push(board.title)
-      // return boardTitles
-      // debugger
-      return <div className="show-pin-select-board-title">{Object.values(board)[0].title}</div>;
+      return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
     })
 
     // debugger
@@ -59,21 +57,13 @@ class PinShow extends React.Component {
         
                 <div className="show-pin-header-right">
 
-                  {/* <button className='show-pin-select'>
-                    <div>Select</div>
-                    <i className="fas fa-chevron-down"></i>
-                  </button> */}
-
                   <div className="show-pin-board-dropdown">
-                    <button className='show-pin-select'>
-                      <div>Select</div>
-                      <i className="fas fa-chevron-down"></i>
-                    </button>
+                    <button className='show-pin-select'>Select</button>
+                    <i className="fas fa-chevron-down select-arrow"></i>
                     <div className='show-pin-select-content'>
                         { boardTitles }
                     </div>
                   </div>
-
 
                   <button className='show-pin-save'>Save</button>
                 </div>

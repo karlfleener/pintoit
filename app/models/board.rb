@@ -25,9 +25,9 @@ class Board < ApplicationRecord
     foreign_key: :board_id,
     class_name: :BoardPin
 
-  has_many :pins, 
-  through: :board_pins,
-  source: :pin
+  # has_many :pins, 
+  # through: :board_pins,
+  # source: :pin
 
   has_many :follows,
     foreign_key: :followed_id,
