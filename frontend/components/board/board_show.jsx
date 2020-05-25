@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PinIndexItem from '../pin/pin_index_item'
 
 
-class Profile extends React.Component {
+class BoardShow extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,6 +12,7 @@ class Profile extends React.Component {
   componentDidMount() {
     // debugger
     this.props.fetchUser(this.props.userId)
+    this.props.fetchBoard(this.props.boardId)
   }
 
   componentDidUpdate(prevProps) {
@@ -22,56 +23,50 @@ class Profile extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
-    // console.log(this.state);
-    const { user } = this.props;
-    debugger
+
+    // debugger
+    const { user, board, boardId } = this.props;
 
     if (!user) return <div></div>;
 
-    const userPins = user.pins.map((pin, idx) => {
-      // debugger
-      return <PinIndexItem key={idx} pin={Object.values(pin)[0]} />
+    const boardPins = board[boardId].pins.map((pin, idx) => {
+      return <PinIndexItem key={idx} pin={pin} />
     })
 
-    // debugger
     return (
       <div className='profile-container'>
 
         <div className="profile-edit-header-bar"></div>
 
         <div className='profile-create-header'>
+
           <div className="profile-create-pin-board-dropdown">
             <button className='profile-create-pin-board-btn'><i className="fas fa-plus"></i></button>
             <div className='profile-create-pin-board-content'>
-              <div>Create Board</div>
               <Link to='/pin-builder'><div>Create Pin</div></Link>
             </div>
             <div className='profile-create-hover'></div>
           </div>
-        </div>
 
+          <div onClick={() => this.props.openModal('edit-board')}><i className={`fas fa-pen board-edit`}></i></div>
+        </div>
+        
         <div className='profile-info-header'>
-          <div className='profile-info-name'>{user.email.slice(0, user.email.indexOf('@'))}</div>
-          {/* <div className='profile-follow-container'>
+          <div className='profile-info-name'>{board[boardId].title}</div>
+          <div className='board-show-num-pins'>{board[boardId].pins.length} Pins</div>
+            {/* <div className='profile-follow-container'>
               <div># followers</div> 
               <div>/</div>
               <div># following</div>
             </div> */}
         </div>
 
-        <div className='profile-boards-pins-header'>
-          {/* <Link to='/users/3'>user3</Link> */}
-          <Link to={`/users/${user.id}/boards`}><button>Boards</button></Link>
-          <Link to={`/users/${user.id}/pins`}><button>Pins</button></Link>
-        </div>
-
         <div className='profile-pin-index-container'>
-          {userPins}
+          {boardPins}
         </div>
       </div>
     )
   }
 }
 
-export default Profile;
+export default BoardShow;

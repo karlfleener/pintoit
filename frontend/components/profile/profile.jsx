@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PinIndexItem from '../pin/pin_index_item'
 
 
-class BoardShow extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,10 +22,9 @@ class BoardShow extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
-    // console.log(this.state);
+
     const { user } = this.props;
-    debugger
+    // debugger
 
     if (!user) return <div></div>; 
 
@@ -74,4 +73,4 @@ class BoardShow extends React.Component {
   }
 }
 
-export default BoardShow;
+export default Profile;

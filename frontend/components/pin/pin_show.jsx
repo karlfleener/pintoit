@@ -8,17 +8,18 @@ class PinShow extends React.Component {
   }
   
   componentDidMount() {
-    debugger
-    this.props.fetchUser(this.props.currentUser.id)
+    // debugger
+    // this.props.fetchUser(this.props.currentUser.id);
     this.props.fetchPin(this.props.match.params.pinId)
-    .then(pin => this.setState(this.props.pin));
+    .then(pin => this.setState(this.props.pin))
+    .then(pin => this.props.fetchBoard(this.props.pin.board_id))
+    .then(pin => this.props.fetchUser(this.props.pin.creator_id))
   }
 
   handleSelect(e) {
     e.preventDefault();
     let selected = document.getElementsByClassName("show-pin-select")[0];
     let board = e.currentTarget;
-    debugger;
     selected.innerText = board.innerText;
   }
 
@@ -33,13 +34,14 @@ class PinShow extends React.Component {
     }
 
     if (!this.props.user) return <div></div>;
+    if (!this.props.board) return <div></div>;
 
     const { user } = this.props
     const boardTitles = user.boards.map((board, idx) => {
       return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
     })
 
-    // debugger
+    debugger
     
     return (
       <div>
@@ -53,7 +55,7 @@ class PinShow extends React.Component {
             <div className='show-pin-info-container'>
 
               <header className="show-pin-header">
-                <div onClick={() => this.props.openModal('edit')}><i className={`fas fa-pen ${editPin}`}></i></div>
+                <div onClick={() => this.props.openModal('edit-pin')}><i className={`fas fa-pen ${editPin}`}></i></div>
         
                 <div className="show-pin-header-right">
 
@@ -72,6 +74,7 @@ class PinShow extends React.Component {
               <div className="show-pin-info">
                 <div className='show-pin-title'>{this.props.pin.title}</div>
                 <div className='show-pin-description'>{this.props.pin.description}</div>
+                <div className='show-pin-board'><strong>{user.email.slice(0, user.email.indexOf('@'))}</strong> saved to <strong>{this.props.board.title}</strong></div>
               </div>
             </div>
           </div>

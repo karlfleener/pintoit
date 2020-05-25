@@ -23,7 +23,7 @@ const NavBar = ({ currentUser, logout }) => {
         <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}> */}
         <div>
           <Link to="/"><div className="nav-item home">Home</div></Link>
-          <Link to={`/users/${currentUser.id}`}><div className="nav-item profile">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
+          <Link to={`/users/${currentUser.id}/boards`}><div className="nav-item profile">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
           <button className='nav-item logout-button' onClick={logout}>Log out</button>
         </div>   
       </nav> 

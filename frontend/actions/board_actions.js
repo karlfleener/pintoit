@@ -37,7 +37,7 @@ export const fetchBoard = boardId => dispatch => BoardApiUtil.fetchBoard(boardId
   .then(board => dispatch(receiveBoard(board)), 
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
-export const createBoard = board => dispatch => BoardApitUtil.createBoard(board)
+export const createBoard = board => dispatch => BoardApiUtil.createBoard(board)
   .then(board => dispatch(receiveBoard(board)),
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
@@ -46,4 +46,5 @@ export const updateBoard = board => dispatch => BoardApiUtil.updateBoard(board)
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
 export const deleteBoard = boardId => dispatch => BoardApiUtil.deleteBoard(boardId)
-  .then(() => dispatch(removeBoard()))
+  .then(() => dispatch(removeBoard()));
+

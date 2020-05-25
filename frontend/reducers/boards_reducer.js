@@ -10,8 +10,8 @@ const boardsReducer = (state = {}, action) => {
     case RECEIVE_BOARD:
       return Object.assign({}, { [action.board.id]: action.board });
     case REMOVE_BOARD:
-      delete nexState[action.boardId];
-      return nexState; 
+      delete newState[action.boardId];
+      return newState; 
     default:
       return state;
   }

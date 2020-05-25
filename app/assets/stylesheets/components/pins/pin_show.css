@@ -58,16 +58,18 @@
   opacity: 0; 
 }
 
-.show-edit {
+.show-edit, 
+.board-edit {
   opacity: 1;
-  color: #333333;
+  color: #8e8e8e;
   padding: 16px;
-  background-color: white;
+  background-color: transparent;
+  border-radius: 50%;
 }
 
-.show-edit:hover {
-  filter: brightness(95%);
-  border-radius: 50%;
+.show-edit:hover,
+.board-edit:hover {
+  background-color: #efefef;
   cursor: pointer;
 }
 
@@ -92,14 +94,14 @@
   justify-content: space-between;
   align-items: center;
   background-color: #efefef;
-  width: 180px;
+  min-width: 180px;
   border-radius: 16px 0 0 16px;
 }
 
 .select-arrow {
   position: absolute;
   top: 12px;
-  right: 12px;
+  right: 8px;
   cursor: pointer;
 }
 
@@ -171,7 +173,9 @@
   margin-bottom: 12px;
 }
 
-.show-pin-description {
+.show-pin-description,
+.show-pin-board {
   font-weight: 500;
+  margin-bottom: 12px;
 }
 

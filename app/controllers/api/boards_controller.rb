@@ -50,12 +50,6 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-    # @board = current_user.boards.find(params[:id])
-    # if @board.destroy
-    #   render 'api/boards/show'
-    # else
-    #   render json: ["Nothing to delete"], status: 404
-    # end
     @board = Board.find(params[:id])
     @board.destroy
     render 'api/boards/show'

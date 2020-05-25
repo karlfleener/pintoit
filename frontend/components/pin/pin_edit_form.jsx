@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
-
 class PinEditForm extends React.Component {
   constructor(props) {
     super(props)
@@ -10,6 +9,10 @@ class PinEditForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
    }
+
+  componentDidMount() {
+    this.props.fetchUser(this.props.currentUser.id)
+  }
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value, errors: [] })
@@ -24,13 +27,35 @@ class PinEditForm extends React.Component {
   handleDelete(e) {
     this.props.deletePin(this.state.id)
       .then(() => {
-        this.props.history.push(`/`);
+        this.props.history.goBack();
         this.props.closeModal();
       })
   }
 
   render() {
-    // console.log(this.state)
+
+    if (!this.props.user) return <div></div>
+
+     let { pin, user} = this.props;
+    // debugger
+    let currentBoardId = pin.board_id;
+    let currentBoard = user.boards.filter(board => {
+      return Object.values(board)[0].id === currentBoardId
+    });
+    let currentBoardTitle = currentBoard[0][currentBoardId].title;
+
+    debugger
+
+    // debugger
+    // const boardTitles = user.boards.map((board, idx) => {
+    //   return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
+    // })
+
+    // let userBoardsArray = Object.values(allBoards).filter(board => {
+    //   return board.creator_id === user.id
+    // })
+
+
     return (
         <div className="edit-pin-container">
           <div className="edit-form-box">
@@ -46,7 +71,7 @@ class PinEditForm extends React.Component {
                   <div className="edit-pin-info-section">
                     <label>Board</label>
                     <div className='edit-pin-info-button'>
-                      <div>Board Dropdown</div>
+                      <div>{currentBoardTitle}</div>
                       <i className="fas fa-chevron-down"></i>
                     </div>
                   </div>

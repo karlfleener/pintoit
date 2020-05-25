@@ -45,7 +45,6 @@ class PinCreateForm extends React.Component {
     e.preventDefault();
     let selected = document.getElementsByClassName("show-pin-select")[0];
     let board = e.currentTarget;
-    debugger;
     selected.innerText = board.innerText;
   }
 
