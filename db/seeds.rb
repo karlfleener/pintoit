@@ -44,187 +44,106 @@ file = open('https://pintoit-seeds.s3.amazonaws.com/snake.jpg')
 pin1.image.attach(io: file, filename: 'snake.jpg')
 pin1.save!
 
-<<<<<<< HEAD
 pin2 = Pin.new({ title: 'desert sands', description: 'sahara desert', creator_id: user2.id, board_id: board5.id })
-=======
-pin2 = Pin.new({ title: 'desert sands', description: 'sahara desert', creator_id: user2.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/desert.jpg')
 pin2.image.attach(io: file, filename: 'desert.jpg')
 pin2.save!
 
-<<<<<<< HEAD
 pin3 = Pin.new({ title: 'gothic buttress', description: 'cathedral', creator_id: user3.id, board_id: board9.id })
-=======
-pin3 = Pin.new({ title: 'gothic buttress', description: 'cathedral', creator_id: user3.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/gothic_buttress.jpg')
 pin3.image.attach(io: file, filename: 'gothic_buttress.jpg')
 pin3.save!
 
-<<<<<<< HEAD
 pin4 = Pin.new({ title: 'barcelona', description: 'the streets of barcelona', creator_id: user4.id, board_id: board12.id })
-=======
-pin4 = Pin.new({ title: 'barcelona', description: 'the streets of barcelona', creator_id: user4.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/barcelona.jpg')
 pin4.image.attach(io: file, filename: 'barcelona.jpg')
 pin4.save!
 
-<<<<<<< HEAD
 pin5 = Pin.new({ title: 'clouds', description: 'colorful clouds', creator_id: user2.id, board_id: board5.id })
-=======
-pin5 = Pin.new({ title: 'clouds', description: 'colorful clouds', creator_id: user2.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/clouds.jpg')
 pin5.image.attach(io: file, filename: 'clouds.jpg')
 pin5.save!
 
-<<<<<<< HEAD
 pin6 = Pin.new({ title: 'the dead sea', description: '', creator_id: user1.id, board_id: board2.id })
-=======
-pin6 = Pin.new({ title: 'the dead sea', description: 'salty shore', creator_id: user1.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/dead_sea.jpg')
 pin6.image.attach(io: file, filename: 'dead_sea.jpg')
 pin6.save!
 
-<<<<<<< HEAD
 pin7 = Pin.new({ title: 'killer whale', description: 'ocean mammal', creator_id: user4.id, board_id: board10.id })
-=======
-pin7 = Pin.new({ title: 'killer whale', description: 'ocean mammal', creator_id: user4.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/killer_whale.jpg')
 pin7.image.attach(io: file, filename: 'killer_whale.jpg')
 pin7.save!
 
-<<<<<<< HEAD
 pin8 = Pin.new({ title: 'paris', description: 'parisian architecture', creator_id: user2.id, board_id: board6.id })
-=======
-pin8 = Pin.new({ title: 'paris', description: 'parisian architecture', creator_id: user2.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/paris.jpg')
 pin8.image.attach(io: file, filename: 'paris.jpg')
 pin8.save!
 
-<<<<<<< HEAD
 pin9 = Pin.new({ title: 'parrot', description: 'exotic bird', creator_id: user1.id, board_id: board1.id })
-=======
-pin9 = Pin.new({ title: 'parrot', description: 'exotic bird', creator_id: user1.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/parrot.jpg')
 pin9.image.attach(io: file, filename: 'parrot.jpg')
 pin9.save!
 
-<<<<<<< HEAD
 pin10 = Pin.new({ title: 'sea sunset', description: 'red sunset', creator_id: user2.id, board_id: board5.id })
-=======
-pin10 = Pin.new({ title: 'sea sunset', description: 'red sunset', creator_id: user2.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/sea_sunset.jpg')
 pin10.image.attach(io: file, filename: 'sea_sunset.jpg')
 pin10.save!
 
-<<<<<<< HEAD
 pin11 = Pin.new({ title: 'bison', description: '', creator_id: user3.id, board_id: board7.id })
-=======
-pin11 = Pin.new({ title: 'bison', description: '', creator_id: user3.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/bison.jpg')
 pin11.image.attach(io: file, filename: 'bison.jpg')
 pin11.save!
 
-<<<<<<< HEAD
 pin12 = Pin.new({ title: 'blue whale', description: '', creator_id: user4.id, board_id: board10.id })
-=======
-pin12 = Pin.new({ title: 'blue whale', description: '', creator_id: user4.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/blue_whale.jpg')
 pin12.image.attach(io: file, filename: 'blue_whale.jpg')
 pin12.save!
 
-<<<<<<< HEAD
 pin13 = Pin.new({ title: 'monkey', description: '', creator_id: user1.id, board_id: board1.id })
-=======
-pin13 = Pin.new({ title: 'monkey', description: '', creator_id: user1.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/monkey.jpg')
 pin13.image.attach(io: file, filename: 'monkey.jpg')
 pin13.save!
 
-<<<<<<< HEAD
 pin14 = Pin.new({ title: 'buildings', description: '', creator_id: user3.id, board_id: board3.id })
-=======
-pin14 = Pin.new({ title: 'buildings', description: '', creator_id: user3.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/building1.jpg')
 pin14.image.attach(io: file, filename: 'building1.jpg')
 pin14.save!
 
-<<<<<<< HEAD
 pin15 = Pin.new({ title: 'clown fish', description: '', creator_id: user2.id, board_id: board4.id })
-=======
-pin15 = Pin.new({ title: 'clown fish', description: '', creator_id: user2.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/clown_fish.jpg')
 pin15.image.attach(io: file, filename: 'clown_fish.jpg')
 pin15.save!
 
-<<<<<<< HEAD
 pin16 = Pin.new({ title: 'door', description: '', creator_id: user4.id, board_id: board12.id })
-=======
-pin16 = Pin.new({ title: 'door', description: '', creator_id: user4.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/door.jpg')
 pin16.image.attach(io: file, filename: 'door.jpg')
 pin16.save!
 
-<<<<<<< HEAD
 pin17 = Pin.new({ title: 'elephant', description: '', creator_id: user2.id, board_id: board4.id })
-=======
-pin17 = Pin.new({ title: 'elephant', description: '', creator_id: user2.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/elephant.jpg')
 pin17.image.attach(io: file, filename: 'elephant.jpg')
 pin17.save!
 
-<<<<<<< HEAD
 pin18 = Pin.new({ title: 'octopus', description: '', creator_id: user1.id, board_id: board1.id })
-=======
-pin18 = Pin.new({ title: 'octopus', description: '', creator_id: user1.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/octopus.jpg')
 pin18.image.attach(io: file, filename: 'octopus.jpg')
 pin18.save!
 
-<<<<<<< HEAD
 pin19 = Pin.new({ title: 'mountains', description: '', creator_id: user3.id, board_id: board8.id })
-=======
-pin19 = Pin.new({ title: 'mountains', description: '', creator_id: user3.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/mountains.jpg')
 pin19.image.attach(io: file, filename: 'mountains.jpg')
 pin19.save!
 
-<<<<<<< HEAD
 pin20 = Pin.new({ title: 'new york', description: '', creator_id: user2.id, board_id: board6.id })
-=======
-pin20 = Pin.new({ title: 'new york', description: '', creator_id: user2.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/new_york.jpg')
 pin20.image.attach(io: file, filename: 'new_york.jpg')
 pin20.save!
 
-<<<<<<< HEAD
 pin21 = Pin.new({ title: 'waterfall', description: '', creator_id: user1.id, board_id: board2.id })
-=======
-pin21 = Pin.new({ title: 'waterfall', description: '', creator_id: user1.id })
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 file = open('https://pintoit-seeds.s3.amazonaws.com/waterfall.jpg')
 pin21.image.attach(io: file, filename: 'waterfall.jpg')
 pin21.save!
 
-<<<<<<< HEAD
 pin22 = Pin.new({ title: 'city', description: '', creator_id: user4.id, board_id: board12.id })
 file = open('https://pintoit-seeds.s3.amazonaws.com/city.jpg')
 pin22.image.attach(io: file, filename: 'city.jpg')
@@ -336,9 +255,3 @@ pin42.save!
 # pin43.save!
 
 
-=======
-
-board1 = Board.create!({ title: 'animals', creator_id: user1.id })
-board2 = Board.create!({ title: 'nature', creator_id: user2.id })
-board3 = Board.create!({ title: 'architecture', creator_id: user3.id})
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b

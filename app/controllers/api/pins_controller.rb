@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 require "byebug"
 
-=======
->>>>>>> d2374c02814ecc95ece543c9d0ac2529d496c51b
 class Api::PinsController < ApplicationController
   def new
     @pin = Pin.new
