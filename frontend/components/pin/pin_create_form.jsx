@@ -7,8 +7,8 @@ class PinCreateForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      creator_id: this.props.currentUser,
-      board: '',
+      creator_id: this.props.currentUser.id,
+      board_id: '',
       imageFile: null,
       imageUrl: null,
       errors: this.props.errors,
@@ -30,6 +30,7 @@ class PinCreateForm extends React.Component {
     const formData = new FormData();
     formData.append('pin[title]', this.state.title);
     formData.append('pin[description]', this.state.description)
+    formData.append('pin[board_id]', this.state.board_id)
     formData.append('pin[errors]', this.state.errors)
     if (this.state.imageFile) {
       formData.append('pin[image]', this.state.imageFile)
@@ -41,11 +42,25 @@ class PinCreateForm extends React.Component {
     })
   }
 
+  boardFromTitle(boardTitle) {
+    let currentUserBoards = this.props.currentUser.boards
+    debugger
+    let board = currentUserBoards.filter(board => {
+      return Object.values(board)[0].title === boardTitle
+    })
+    debugger
+    return Object.values(board[0])[0];
+  }
+
   handleSelect(e) {
     e.preventDefault();
     let selected = document.getElementsByClassName("show-pin-select")[0];
-    let board = e.currentTarget;
-    selected.innerText = board.innerText;
+    let boardTitle = e.currentTarget;
+    selected.innerText = boardTitle.innerText;
+    debugger
+    let boardId = this.boardFromTitle(boardTitle.innerText).id
+    debugger
+    this.setState({board_id: boardId})
   }
 
   update(field) {
@@ -72,10 +87,16 @@ class PinCreateForm extends React.Component {
     
     if (this.props.errors[0].includes("Image An image is required to create a Pin.")) {
       error.push("An image is required to create a Pin.");
-      // debugger
       return error
-    } else if (this.props.errors[0].includes("Title can't be blank")) {
+    } 
+    
+    if (this.props.errors[0].includes("Title can't be blank")) {
       error.push("Title can't be blank.");
+      return error
+    } 
+
+    if (this.props.errors[0].includes("Board must exist")) {
+      error.push("Please select a board.");
       return error
     } 
   }
@@ -88,6 +109,12 @@ class PinCreateForm extends React.Component {
   
   titleErrors() {
     if (this.state.errors[0] === "Title can't be blank.") {
+      return this.state.errors;
+    }
+  }
+
+  boardErrors() {
+    if (this.state.errors[0] === "Please select a board.") {
       return this.state.errors;
     }
   }
@@ -114,6 +141,7 @@ class PinCreateForm extends React.Component {
               <div className='show-pin-select-content'>
                 {boardTitles}
               </div>
+              <div className='board-error'>{this.boardErrors()}</div>
             </div>
               <button className="create-pin-save" onClick={this.handleSubmit}>Save</button>
           </header>

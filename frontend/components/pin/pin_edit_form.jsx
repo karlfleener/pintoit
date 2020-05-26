@@ -8,6 +8,7 @@ class PinEditForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
    }
 
   componentDidMount() {
@@ -32,6 +33,22 @@ class PinEditForm extends React.Component {
       })
   }
 
+  boardIdFromTitle(title) {
+    let board = this.props.user.boards.filter(board => {
+      return Object.values(board)[0].title === title;
+    })
+    return Object.values(board[0])[0];
+  }
+
+  handleSelect(e) {
+    let selected = document.getElementsByClassName("edit-pin-board")[0];
+    let board = e.currentTarget;
+    selected.innerText = board.innerText;
+
+    let boardObject = this.boardIdFromTitle(board.innerText)
+    this.setState({ board_id: boardObject.id, errors: [] });
+  }
+
   render() {
 
     if (!this.props.user) return <div></div>
@@ -44,17 +61,10 @@ class PinEditForm extends React.Component {
     });
     let currentBoardTitle = currentBoard[0][currentBoardId].title;
 
+    const boardTitles = user.boards.map((board, idx) => {
+      return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
+    })
     debugger
-
-    // debugger
-    // const boardTitles = user.boards.map((board, idx) => {
-    //   return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
-    // })
-
-    // let userBoardsArray = Object.values(allBoards).filter(board => {
-    //   return board.creator_id === user.id
-    // })
-
 
     return (
         <div className="edit-pin-container">
@@ -70,10 +80,20 @@ class PinEditForm extends React.Component {
                   </div>
                   <div className="edit-pin-info-section">
                     <label>Board</label>
-                    <div className='edit-pin-info-button'>
-                      <div>{currentBoardTitle}</div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
+
+
+                <div className="show-pin-board-dropdown">
+                  {/* <button className='show-pin-select'>Select</button> */}
+
+                  <div className='edit-pin-info-button'>
+                  <div className="edit-pin-board">{currentBoardTitle}</div>
+                  <i className="fas fa-chevron-down"></i>
+                  </div>
+                  <div className='show-pin-select-content'>
+                    {boardTitles}
+                  </div>
+                </div>
+
                   </div>
                   <div className="edit-pin-info-section">
                     <label>Description</label>

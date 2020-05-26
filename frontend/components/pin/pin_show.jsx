@@ -4,16 +4,29 @@ import { Link, withRouter } from 'react-router-dom'
 class PinShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = !this.props.pin ? { title: '' } : this.props.pin;
+    this.state = !this.props.pin || !this.props.board ? 
+    { pin: '', board: '' } : 
+    {pin: this.props.pin, board: this.props.board};
+
+    this.handleSave = this.handleSave.bind(this);
   }
-  
+
   componentDidMount() {
     // debugger
     // this.props.fetchUser(this.props.currentUser.id);
     this.props.fetchPin(this.props.match.params.pinId)
-    .then(pin => this.setState(this.props.pin))
-    .then(pin => this.props.fetchBoard(this.props.pin.board_id))
-    .then(pin => this.props.fetchUser(this.props.pin.creator_id))
+    .then(action => this.setState( {pin: action.pin} ))
+    .then(() => this.props.fetchBoard(this.state.pin.board_id))
+    .then(action => this.setState({ board: action.board }))
+    .then(() => this.props.fetchUser(this.state.pin.creator_id))
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // debugger
+    if (prevState.board.id !== this.props.pin.board_id) {
+      this.props.fetchBoard(this.props.pin.board_id)
+        .then(action => this.setState({ board: action.board }))
+    }
   }
 
   handleSelect(e) {
@@ -23,9 +36,27 @@ class PinShow extends React.Component {
     selected.innerText = board.innerText;
   }
 
+  boardFromTitle(boardTitle) {
+    let currentUserBoards = this.props.currentUser.boards
+    let board = currentUserBoards.filter(board => {
+       return Object.values(board)[0].title === boardTitle 
+    })
+    return Object.values(board[0])[0];
+  }
+
+  handleSave(e) {
+    let pin = Object.assign({},this.state.pin)
+    let boardTitle = document.getElementsByClassName("show-pin-select")[0].innerText;
+    let board = this.boardFromTitle(boardTitle);
+    pin.board_id = board.id;
+    pin.creator_id = board.creator_id;
+
+    this.props.createPin(pin)
+      .then(() => this.props.history.goBack())
+  }
+
   render() {
-    // debugger
-    // console.log(this.props)
+
     let editPin; 
     if (!this.props.pin) {
       return <div></div>;
@@ -36,8 +67,9 @@ class PinShow extends React.Component {
     if (!this.props.user) return <div></div>;
     if (!this.props.board) return <div></div>;
 
-    const { user } = this.props
-    const boardTitles = user.boards.map((board, idx) => {
+    const { user, currentUser } = this.props
+    debugger
+    const boardTitles = currentUser.boards.map((board, idx) => {
       return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
     })
 
@@ -49,7 +81,7 @@ class PinShow extends React.Component {
         <div className="show-pin-container">
           <div className="show-pin-box">
             <div className='show-pin-image-container'>
-              <img src={this.state.imageUrl} alt={this.state.title}/>
+              <img src={this.state.pin.imageUrl} alt={this.state.title}/>
             </div>
 
             <div className='show-pin-info-container'>
@@ -67,14 +99,14 @@ class PinShow extends React.Component {
                     </div>
                   </div>
 
-                  <button className='show-pin-save'>Save</button>
+                  <button onClick={this.handleSave} className='show-pin-save'>Save</button>
                 </div>
               </header>
 
               <div className="show-pin-info">
                 <div className='show-pin-title'>{this.props.pin.title}</div>
                 <div className='show-pin-description'>{this.props.pin.description}</div>
-                <div className='show-pin-board'><strong>{user.email.slice(0, user.email.indexOf('@'))}</strong> saved to <strong>{this.props.board.title}</strong></div>
+                <div className='show-pin-board'><strong>{user.email.slice(0, user.email.indexOf('@'))}</strong> saved to <strong>{this.state.board.title}</strong></div>
               </div>
             </div>
           </div>

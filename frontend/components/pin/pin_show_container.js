@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { fetchPin } from '../../actions/pin_actions';
+import { fetchPin, createPin } from '../../actions/pin_actions';
 import { fetchBoard } from '../../actions/board_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions'
 import PinShow from './pin_show';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
+  debugger
   return {
     pin: state.entities.pins[ownProps.match.params.pinId],
     currentUser: state.session.currentUser,
@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPin: pinId => dispatch(fetchPin(pinId)),
+  createPin: pin => dispatch(createPin(pin)),
   fetchBoard: boardId => dispatch(fetchBoard(boardId)),
   fetchUser: userId => dispatch(fetchUser(userId)),
   openModal: modal => dispatch(openModal(modal))

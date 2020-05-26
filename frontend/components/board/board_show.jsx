@@ -6,16 +6,20 @@ import PinIndexItem from '../pin/pin_index_item'
 class BoardShow extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = this.props.board
   }
 
   componentDidMount() {
-    // debugger
-    this.props.fetchUser(this.props.userId)
     this.props.fetchBoard(this.props.boardId)
+    .then(action => {
+      debugger
+      return (
+        this.setState( action.board ))
+      })
+      .then(() => this.props.fetchUser(this.props.userId));
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     // debugger
     if (prevProps.userId !== this.props.userId) {
       this.props.fetchUser(this.props.match.params.userId)
@@ -24,12 +28,12 @@ class BoardShow extends React.Component {
 
   render() {
 
-    // debugger
     const { user, board, boardId } = this.props;
+    debugger
 
     if (!user) return <div></div>;
 
-    const boardPins = board[boardId].pins.map((pin, idx) => {
+    const boardPins = Object.values(board)[0].pins.map((pin, idx) => {
       return <PinIndexItem key={idx} pin={pin} />
     })
 
@@ -52,8 +56,9 @@ class BoardShow extends React.Component {
         </div>
         
         <div className='profile-info-header'>
-          <div className='profile-info-name'>{board[boardId].title}</div>
-          <div className='board-show-num-pins'>{board[boardId].pins.length} Pins</div>
+          <div className='profile-info-name'>{Object.values(board)[0].title}</div>
+          <div className='board-show-details'>{Object.values(board)[0].pins.length} Pins</div>
+          <div className='board-show-details'>{Object.values(board)[0].description}</div>
             {/* <div className='profile-follow-container'>
               <div># followers</div> 
               <div>/</div>

@@ -18,7 +18,7 @@ class BoardEditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateBoard(this.state)
-      .then(this.props.closeModal)
+      .then(this.props.closeModal());
   }
 
   deleteAllBoardPins() {

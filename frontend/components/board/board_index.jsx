@@ -6,19 +6,24 @@ import BoardIndexItem from './board_index_item'
 class ProfileBoardIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.activeButton = this.activeButton.bind(this);
+    this.state = this.props.allBoards;
   }
 
   componentDidMount() {
     // debugger
-    this.props.fetchAllBoards()
-    this.props.fetchUser(this.props.userId)
+    this.props.fetchAllBoards();
+    this.props.fetchUser(this.props.userId);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     // debugger
     if (prevProps.userId !== this.props.userId) {
       this.props.fetchUser(this.props.match.params.userId)
+    }
+
+    debugger
+    if (Object.values(prevProps.allBoards).length !== Object.values(this.props.allBoards).length) {
+      this.props.fetchAllBoards();
     }
   }
 
@@ -49,7 +54,7 @@ class ProfileBoardIndex extends React.Component {
           <div className="profile-create-pin-board-dropdown">
             <button className='profile-create-pin-board-btn'><i className="fas fa-plus"></i></button>
             <div className='profile-create-pin-board-content'>
-              <Link to='/boardmodal'><div>Create Board</div></Link>
+              <div onClick={() => this.props.openModal('create-board')}>Create Board</div>
               <Link to='/pin-builder'><div>Create Pin</div></Link>
             </div>
             <div className='profile-create-hover'></div>
