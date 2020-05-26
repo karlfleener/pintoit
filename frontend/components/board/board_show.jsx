@@ -12,7 +12,6 @@ class BoardShow extends React.Component {
   componentDidMount() {
     this.props.fetchBoard(this.props.boardId)
     .then(action => {
-      debugger
       return (
         this.setState( action.board ))
       })
@@ -20,7 +19,6 @@ class BoardShow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // debugger
     if (prevProps.userId !== this.props.userId) {
       this.props.fetchUser(this.props.match.params.userId)
     }
@@ -29,7 +27,6 @@ class BoardShow extends React.Component {
   render() {
 
     const { user, board, boardId } = this.props;
-    debugger
 
     if (!user) return <div></div>;
 

@@ -5,7 +5,6 @@ import { closeModal } from '../../actions/modal_actions'
 import PinEditForm from './pin_edit_form';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     pin: Object.values(state.entities.pins)[0],
     currentUser: state.session.currentUser,

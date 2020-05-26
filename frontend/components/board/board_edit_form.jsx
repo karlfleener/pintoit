@@ -38,7 +38,6 @@ class BoardEditForm extends React.Component {
 
   render() {
 
-    // debugger
     return (
       <div className="edit-pin-container">
         <div className="edit-form-box">

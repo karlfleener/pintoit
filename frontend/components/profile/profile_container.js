@@ -3,7 +3,6 @@ import { fetchAllUsers, fetchUser } from '../../actions/user_actions';
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
     currentUser: state.session.currentUser,
     userId: Number(ownProps.match.params.userId),

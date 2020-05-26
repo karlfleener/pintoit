@@ -6,7 +6,6 @@ import { openModal } from '../../actions/modal_actions'
 import PinShow from './pin_show';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     pin: state.entities.pins[ownProps.match.params.pinId],
     currentUser: state.session.currentUser,

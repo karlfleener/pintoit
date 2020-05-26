@@ -10,18 +10,15 @@ class ProfileBoardIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchAllBoards();
     this.props.fetchUser(this.props.userId);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // debugger
     if (prevProps.userId !== this.props.userId) {
       this.props.fetchUser(this.props.match.params.userId)
     }
 
-    debugger
     if (Object.values(prevProps.allBoards).length !== Object.values(this.props.allBoards).length) {
       this.props.fetchAllBoards();
     }
@@ -44,7 +41,6 @@ class ProfileBoardIndex extends React.Component {
         return <BoardIndexItem key={idx} board={board} />
       })
 
-    // debugger
     return (
       <div className='profile-container'>
 

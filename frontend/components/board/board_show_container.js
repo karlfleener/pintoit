@@ -5,7 +5,6 @@ import { openModal } from '../../actions/modal_actions';
 import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     currentUser: state.session.currentUser,
     userId: Number(ownProps.match.params.userId),

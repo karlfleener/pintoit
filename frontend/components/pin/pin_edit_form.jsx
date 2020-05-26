@@ -53,8 +53,8 @@ class PinEditForm extends React.Component {
 
     if (!this.props.user) return <div></div>
 
-     let { pin, user} = this.props;
-    // debugger
+    let { pin, user} = this.props;
+
     let currentBoardId = pin.board_id;
     let currentBoard = user.boards.filter(board => {
       return Object.values(board)[0].id === currentBoardId
@@ -64,7 +64,6 @@ class PinEditForm extends React.Component {
     const boardTitles = user.boards.map((board, idx) => {
       return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
     })
-    debugger
 
     return (
         <div className="edit-pin-container">

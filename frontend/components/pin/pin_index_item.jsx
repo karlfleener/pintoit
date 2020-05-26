@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PinIndexItem = ({ pin }) => {
-  // debugger
+
   return (
     <Link to={`/pins/${pin.id}`}>
       <div className='pin-index-item-container'>

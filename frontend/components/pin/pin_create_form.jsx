@@ -21,7 +21,6 @@ class PinCreateForm extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchUser(this.props.currentUser.id)
   }
 
@@ -44,11 +43,9 @@ class PinCreateForm extends React.Component {
 
   boardFromTitle(boardTitle) {
     let currentUserBoards = this.props.currentUser.boards
-    debugger
     let board = currentUserBoards.filter(board => {
       return Object.values(board)[0].title === boardTitle
     })
-    debugger
     return Object.values(board[0])[0];
   }
 
@@ -57,9 +54,7 @@ class PinCreateForm extends React.Component {
     let selected = document.getElementsByClassName("show-pin-select")[0];
     let boardTitle = e.currentTarget;
     selected.innerText = boardTitle.innerText;
-    debugger
     let boardId = this.boardFromTitle(boardTitle.innerText).id
-    debugger
     this.setState({board_id: boardId})
   }
 
@@ -123,7 +118,7 @@ class PinCreateForm extends React.Component {
     const imageOutline = this.imageErrors() ? 'image-error-outline' : '';
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl} alt='pin image preview'/> : null;
     const imagePreviewClass = this.state.imageUrl ? 'show' : '';
-    debugger
+
     if (!this.props.user) return <div></div>
 
     const { user } = this.props

@@ -29,9 +29,9 @@ export const fetchAllBoards = () => dispatch => BoardApiUtil.fetchAllBoards()
   .then(boards => dispatch(receiveAllBoards(boards)), 
   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
-export const fetchAllUsersBoards = (userId) => dispatch => BoardApiUtil.fetchAllUsersBoards(userId)
-  .then(boards => dispatch(receiveAllBoards(boards)), 
-  err => dispatch(receiveBoardErrors(err.responseJSON)))
+// export const fetchAllUsersBoards = (userId) => dispatch => BoardApiUtil.fetchAllUsersBoards(userId)
+//   .then(boards => dispatch(receiveAllBoards(boards)), 
+//   err => dispatch(receiveBoardErrors(err.responseJSON)))
 
 export const fetchBoard = boardId => dispatch => BoardApiUtil.fetchBoard(boardId)
   .then(board => dispatch(receiveBoard(board)), 

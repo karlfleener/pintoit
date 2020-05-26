@@ -10,12 +10,10 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchUser(this.props.userId)
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (prevProps.userId !== this.props.userId) {
       this.props.fetchUser(this.props.match.params.userId)
     }
@@ -24,16 +22,13 @@ class Profile extends React.Component {
   render() {
 
     const { user } = this.props;
-    // debugger
 
     if (!user) return <div></div>; 
 
     const userPins = user.pins.map((pin,idx )=> {
-      // debugger
       return <PinIndexItem key={idx} pin={Object.values(pin)[0]} />
     })
     
-    // debugger
     return (
       <div className='profile-container'>
 

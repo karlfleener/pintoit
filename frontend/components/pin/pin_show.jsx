@@ -12,8 +12,6 @@ class PinShow extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
-    // this.props.fetchUser(this.props.currentUser.id);
     this.props.fetchPin(this.props.match.params.pinId)
     .then(action => this.setState( {pin: action.pin} ))
     .then(() => this.props.fetchBoard(this.state.pin.board_id))
@@ -22,7 +20,6 @@ class PinShow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // debugger
     if (prevState.board.id !== this.props.pin.board_id) {
       this.props.fetchBoard(this.props.pin.board_id)
         .then(action => this.setState({ board: action.board }))
@@ -68,12 +65,10 @@ class PinShow extends React.Component {
     if (!this.props.board) return <div></div>;
 
     const { user, currentUser } = this.props
-    debugger
+
     const boardTitles = currentUser.boards.map((board, idx) => {
       return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
     })
-
-    debugger
     
     return (
       <div>
