@@ -1,3 +1,5 @@
+require "byebug"
+
 class Api::PinsController < ApplicationController
   def new
     @pin = Pin.new
@@ -36,7 +38,6 @@ class Api::PinsController < ApplicationController
 
   def update
     @pin = Pin.find(params[:id])
-
     if (@pin.creator_id === current_user.id && @pin.update(pin_params))
       render 'api/pins/show'
     else
@@ -53,6 +54,6 @@ class Api::PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description, :creator_id, :image)
+    params.require(:pin).permit(:title, :description, :creator_id, :board_id, :image)
   end
 end

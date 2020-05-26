@@ -1,16 +1,17 @@
+
 .nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 74px;
   background-color: white;
   z-index: 1;
 }
 
-.nav-menu li {
+.nav-menu div{
   display: flex;
   justify-content: space-around;
   padding: 18px;

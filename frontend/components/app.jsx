@@ -10,7 +10,9 @@ import ProfileContainer from './profile/profile_container';
 import ProfilePinsContainer from './profile/profile_container';
 import PinShowContainer from './pin/pin_show_container';
 import PinCreateFormContainer from './pin/pin_create_form_container'
-import PinIndexContainter from './pin/pin_index_container';
+import PinIndexContainer from './pin/pin_index_container';
+import BoardIndexContainer from './board/board_index_container'
+import BoardShowContainer from './board/board_show_container'
 
 import Modal from './modal/modal';
 
@@ -26,9 +28,11 @@ const App = () => (
   <Switch>
     <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
     <ProtectedRoute exact path='/users/:userId/pins' component={ProfilePinsContainer} />
+    <ProtectedRoute exact path='/users/:userId/boards' component={BoardIndexContainer} />
+    <ProtectedRoute exact path='/users/:userId/boards/:boardId' component={BoardShowContainer} />
     <ProtectedRoute exact path='/pins/:pinId' component={PinShowContainer} />
     <ProtectedRoute exact path='/pin-builder' component={PinCreateFormContainer} />
-    <ProtectedRoute exact path='/' component={PinIndexContainter} />
+    <ProtectedRoute exact path='/' component={PinIndexContainer} />
    </Switch> 
   </div>
 )
