@@ -81,7 +81,6 @@ class SignupForm extends React.Component {
     const passwordOutline = this.passwordErrors() ? 'error-outline' : '';
     const ageOutline = this.ageErrors() ? 'error-outline' : '';
 
-    console.log(this.state)
     return (
      <div className='session-container'>
         <Link to='/login'><button className="session-side-button">Log in</button></Link>
