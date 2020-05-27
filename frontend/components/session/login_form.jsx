@@ -125,6 +125,7 @@ class LoginForm extends React.Component {
           <a href='https://www.linkedin.com/in/karlfleener/' target="_blank">LinkedIn</a>
           <a href='https://angel.co/u/karlfleener' target="_blank">AngelList</a>
           <a href='https://github.com/karlfleener' target="_blank">GitHub</a>
+          <a href='https://karlfleener.github.io/' target="_blank">Portfolio</a>
         </footer>
       </div>
     );
