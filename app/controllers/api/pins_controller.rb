@@ -1,5 +1,3 @@
-require "byebug"
-
 class Api::PinsController < ApplicationController
   def new
     @pin = Pin.new

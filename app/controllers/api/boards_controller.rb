@@ -1,5 +1,3 @@
-require "byebug"
-
 class Api::BoardsController < ApplicationController
   def new
     # displays the form to create a board (modal)
