@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-Pin.destroy_all
 Board.destroy_all
+Pin.destroy_all
 
 #
 
