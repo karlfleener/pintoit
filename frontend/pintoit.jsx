@@ -3,9 +3,9 @@ import ReactDom from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store.js';
 // import {signup, login, logout} from './actions/session_actions';
-import {fetchAllPins, fetchPin, createPin, updatePin, deletePin} from './util/pin_api_util';
-import {fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard} from './util/board_api_util';
-import { fetchAllUsers, fetchUser} from './util/users_api_util';
+import { fetchAllPins, fetchPin, createPin, updatePin, deletePin } from './util/pin_api_util';
+import { fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard } from './util/board_api_util';
+import { fetchAllUsers, fetchUser } from './util/users_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchBoard = fetchBoard;
   window.createBoard = createBoard;
   window.updateBoard = updateBoard;
-  window.deleteBoard  = deleteBoard;
+  window.deleteBoard = deleteBoard;
   // TESTING
-  
+
   const root = document.getElementById('root');
   let preloadedState = undefined;
   if (window.currentUser) {
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const store = configureStore(preloadedState);
   //TESTING
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   //TESTING
-  ReactDom.render(<Root store={store}/>, root)
+  ReactDom.render(<Root store={store} />, root)
 })
