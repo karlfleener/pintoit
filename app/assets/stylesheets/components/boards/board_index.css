@@ -1,12 +1,13 @@
 .profile-board-index-container {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fit, 300px);
   grid-template-rows: auto;
   grid-gap: 24px;
   position: relative;
   top: 72px;
   width: 100%;
+  margin: 0 24px 0 24px;
 }
 
  .board-index-item-container {

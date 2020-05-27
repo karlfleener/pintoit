@@ -19,7 +19,18 @@ export const fetchPin = pinId => (
   })
 )
 
-export const createPin = (pin) => (
+// export const createPin = (pin) => (
+//   $.ajax({
+//     method: 'POST',
+//     url: '/api/pins',
+//     data: pin,
+//     contentType: false,
+//     processData: false,
+//   })
+// )
+export const createPin = (pin) => {
+  debugger
+  return(
   $.ajax({
     method: 'POST',
     url: '/api/pins',
@@ -27,7 +38,7 @@ export const createPin = (pin) => (
     contentType: false,
     processData: false,
   })
-)
+)}
 
 export const updatePin = pin => (
   $.ajax({

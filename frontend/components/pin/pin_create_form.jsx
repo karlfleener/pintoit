@@ -41,6 +41,18 @@ class PinCreateForm extends React.Component {
     })
   }
 
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    debugger
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   boardFromTitle(boardTitle) {
     let currentUserBoards = this.props.currentUser.boards
     let board = currentUserBoards.filter(board => {
@@ -62,16 +74,7 @@ class PinCreateForm extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value, errors: [] })
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({imageFile: file, imageUrl: fileReader.result});
-    }
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
+  
 
   removeImagePreview() {
     this.setState({imageUrl: null, imageFile: null, errors: []});

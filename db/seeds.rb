@@ -199,34 +199,24 @@ file = open('https://pintoit-seeds.s3.amazonaws.com/texture.jpg')
 pin32.image.attach(io: file, filename: 'texture.jpg')
 pin32.save!
 
-# pin33 = Pin.new({ title: 'pink dress', description: '', creator_id: user4.id})
-# file = open('https://pintoit-seeds.s3.amazonaws.com/pink_dress.jpg')
-# pin33.image.attach(io: file, filename: 'pink_dress.jpg')
-# pin33.save!
-
-pin34 = Pin.new({ title: 'marble', description: '', creator_id: user4.id, board_id: board14.id })
+pin33 = Pin.new({ title: 'marble', description: '', creator_id: user4.id, board_id: board14.id })
 file = open('https://pintoit-seeds.s3.amazonaws.com/marble.jpg')
-pin34.image.attach(io: file, filename: 'marble.jpg')
-pin34.save!
+pin33.image.attach(io: file, filename: 'marble.jpg')
+pin33.save!
 
-pin35 = Pin.new({ title: 'fur', description: '', creator_id: user4.id, board_id: board14.id })
+pin36 = Pin.new({ title: 'fur', description: '', creator_id: user4.id, board_id: board14.id })
 file = open('https://pintoit-seeds.s3.amazonaws.com/fur.jpg')
-pin35.image.attach(io: file, filename: 'fur.jpg')
-pin35.save!
-
-pin36 = Pin.new({ title: 'feathers', description: '', creator_id: user4.id, board_id: board14.id })
-file = open('https://pintoit-seeds.s3.amazonaws.com/feathers.jpg')
-pin36.image.attach(io: file, filename: 'feathers.jpg')
+pin36.image.attach(io: file, filename: 'fur.jpg')
 pin36.save!
 
-pin37 = Pin.new({ title: 'elie saab', description: '', creator_id: user4.id, board_id: board13.id })
-file = open('https://pintoit-seeds.s3.amazonaws.com/elie_saab.jpg')
-pin37.image.attach(io: file, filename: 'elie_saab.jpg')
+pin37 = Pin.new({ title: 'feathers', description: '', creator_id: user4.id, board_id: board14.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/feathers.jpg')
+pin37.image.attach(io: file, filename: 'feathers.jpg')
 pin37.save!
 
-pin38 = Pin.new({ title: 'crocodile skin', description: '', creator_id: user4.id, board_id: board14.id })
-file = open('https://pintoit-seeds.s3.amazonaws.com/crocodile_skin.jpg')
-pin38.image.attach(io: file, filename: 'crocodile_skin.jpg')
+pin38 = Pin.new({ title: 'elie saab', description: '', creator_id: user4.id, board_id: board13.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/elie_saab.jpg')
+pin38.image.attach(io: file, filename: 'elie_saab.jpg')
 pin38.save!
 
 pin39 = Pin.new({ title: 'black gown', description: '', creator_id: user4.id, board_id: board13.id })
@@ -249,9 +239,10 @@ file = open('https://pintoit-seeds.s3.amazonaws.com/black_dress.jpg')
 pin42.image.attach(io: file, filename: 'black_dress.jpg')
 pin42.save!
 
-# pin43 = Pin.new({ title: 'ballerina', description: '', creator_id: user4.id})
-# file = open('https://pintoit-seeds.s3.amazonaws.com/ballerina.jpg')
-# pin43.image.attach(io: file, filename: 'ballerina.jpg')
-# pin43.save!
+pin43 = Pin.new({ title: 'crocodile skin', description: '', creator_id: user4.id, board_id: board14.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/crocodile_skin.jpg')
+pin43.image.attach(io: file, filename: 'crocodile_skin.jpg')
+pin43.save!
+
 
 

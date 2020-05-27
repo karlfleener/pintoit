@@ -5,8 +5,10 @@ class PinShow extends React.Component {
   constructor(props) {
     super(props)
     this.state = !this.props.pin || !this.props.board ? 
-    { pin: '', board: '' } : 
-    {pin: this.props.pin, board: this.props.board};
+    { pin: '', 
+    board: '' } : 
+    { pin: this.props.pin, 
+      board: this.props.board };
 
     this.handleSave = this.handleSave.bind(this);
   }
@@ -42,14 +44,31 @@ class PinShow extends React.Component {
   }
 
   handleSave(e) {
-    let pin = Object.assign({},this.state.pin)
+    e.preventDefault();
+    let pin = Object.create(this.state.pin)
     let boardTitle = document.getElementsByClassName("show-pin-select")[0].innerText;
     let board = this.boardFromTitle(boardTitle);
     pin.board_id = board.id;
     pin.creator_id = board.creator_id;
+    debugger
+    // const newPin = Object.create(pin)
+    debugger
+    // this.props.createPin(newPin)
+    //   .then(() => this.props.history.goBack())
+    this.props.history.goBack();
+    //  if (this.state.imageFile) {
+    //     formData.append('pin[image]', this.state.imageFile)
+    //   }
+      
+      const formData = new FormData();
+      formData.append('pin[title]', this.state.pin.title);
+      formData.append('pin[description]', this.state.pin.description)
+      formData.append('pin[creator_id]', this.props.currentUser.id)
+      formData.append('pin[board_id]', board.id)
+      formData.append('pin[imageFile]', this.state.pin.imageFile)
+      formData.append('pin[imageUrl]', this.state.pin.imageUrl)
+      formData.append('pin[errors]', this.state.pin.errors)
 
-    this.props.createPin(pin)
-      .then(() => this.props.history.goBack())
   }
 
   render() {
