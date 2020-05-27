@@ -6,7 +6,7 @@
   text-align: center;
   min-height: 100vh;
   /* background-color: rgb(185, 185, 185); */
-  background: url("pintoit.png");
+  background-image: url("pintoit.png");
 
 }
 

@@ -38,10 +38,7 @@ export const fetchPin = pinId => dispatch => PinApiUtil.fetchPin(pinId)
     err => dispatch(receivePinErrors(err.responseJSON)));
 
 export const createPin = pin => dispatch => PinApiUtil.createPin(pin)
-  .then(pin => {
-    debugger
-    return dispatch(receivePin(pin))
-  },
+  .then(pin => dispatch(receivePin(pin)),
     err => dispatch(receivePinErrors(err.responseJSON)));
 
 export const updatePin = pin => dispatch => PinApiUtil.updatePin(pin)

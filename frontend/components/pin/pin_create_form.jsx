@@ -43,7 +43,6 @@ class PinCreateForm extends React.Component {
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
-    debugger
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ imageFile: file, imageUrl: fileReader.result });
