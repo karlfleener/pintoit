@@ -244,5 +244,46 @@ file = open('https://pintoit-seeds.s3.amazonaws.com/crocodile_skin.jpg')
 pin43.image.attach(io: file, filename: 'crocodile_skin.jpg')
 pin43.save!
 
+pin44 = Pin.new({ title: 'squirrel', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/squirrel.jpg')
+pin44.image.attach(io: file, filename: 'squirrel.jpg')
+pin44.save!
+
+pin45 = Pin.new({ title: 'tiger', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/tiger.jpg')
+pin45.image.attach(io: file, filename: 'tiger.jpg')
+pin45.save!
+
+pin46 = Pin.new({ title: 'jellyfish', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/jellyfish.jpg')
+pin46.image.attach(io: file, filename: 'jellyfish.jpg')
+pin46.save!
+
+pin47 = Pin.new({ title: 'panda', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/panda.jpg')
+pin47.image.attach(io: file, filename: 'panda.jpg')
+pin47.save!
+
+pin48 = Pin.new({ title: 'owl', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/owl.jpg')
+pin48.image.attach(io: file, filename: 'owl.jpg')
+pin48.save!
+
+pin49 = Pin.new({ title: 'fish', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/fish.jpg')
+pin49.image.attach(io: file, filename: 'fish.jpg')
+pin49.save!
+
+pin50 = Pin.new({ title: 'dog', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/dog.jpg')
+pin50.image.attach(io: file, filename: 'dog.jpg')
+pin50.save!
+
+pin51 = Pin.new({ title: 'bird', description: '', creator_id: user4.id, board_id: board10.id })
+file = open('https://pintoit-seeds.s3.amazonaws.com/bird.jpg')
+pin51.image.attach(io: file, filename: 'bird.jpg')
+pin51.save!
+
+
 
 

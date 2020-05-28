@@ -1,55 +1,71 @@
-# Welcome to Pintoit!
+## Pintoit
 
-Pintoit is a clone of Pinterest that allows users to view and create new pins that they are interested in.
+A Pinterest clone that allows users to share and save pins to categorized boards.
 
-[Pintoit](https://pintoit.herokuapp.com/)
+Live Site: https://pintoit.herokuapp.com/
+
+## Table of Contents
+
+- [Background and Overview](#background-and-overview)
+- [Technologies](#Technologies)
+- [Features](#features)
+  * [User Authentication](#User-Authentication)
+  * [Pins](#Pins)
+  * [Boards](#Boards)
+  * [Profile](#Profile)
+- [Code Highlights](#code-highlights)
+- [Future Plans](#future-plans)
+
+## Background and Overview
+
+
 
 ## Technologies
-* Ruby on Rails
-* Javascript
+
 * React
 * Redux
+* Javascript
+* Ruby on Rails
 * HTML
 * CSS
 * Postgres
 * AWS photo storage
 
-## Feature Highlights
+## Features
 
-### Creating Pins
+### User Authentication
+- Users must login/sign up to use platform
+- 
 
-Pins are able to be created through a form where users are able to upload an image, create a name for the pin and describe the pin if they choose to. To access this form, simply click on the + icon in the bottom right corner of every page.
-
-<div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/pin_create.png" alt="profile">
-</div>
-
-Once a pin has been created the homepage updates and gets populated with pins created from all users.
-
-<div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/homepage.png" alt="profile">
-</div>
-
-### Editing Pins
-
-When viewing pins, if the user is also the creator the pin, they are allowed permission to edit the title and description or delete the pin all together. To access the edit form click the pencil icon at the top of the pin's show page.
+### Pins
+- Users can create/view pins
+- Users can edit/delete their own pins
+- Pins are organized by boards
 
 <div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/pin_edit.png" alt="profile">
+  <img width="100%" src="/app/assets/images/readme_screenshots/pin_create.gif" alt="create pin gif">
 </div>
+
+<div>
+  <img width="100%" src="/app/assets/images/readme_screenshots/pin_edit.gif" alt="edit pin gif">
+</div>
+
+### Boards
+- Users can create/view boards
+- Users can edit/delete their own boards
+- Selecting a board shows all pins associated with it
 
 ### Profile
+- Users can view/edit/delete their boards/pins
 
-All pins that the user has created are able to be viewed on their profile page.
 
 <div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/profile.png" alt="profile">
+  <img width="100%" src="/app/assets/images/readme_screenshots/profile.gif" alt="profile gif">
 </div>
 
-### Instructions
+## Code Highlights
 
-Run commands after download
-1. bundle install
-2. npm install
-3. bundle exec rails server
-4. npm run webpack
+## Future Plans
+
+- allow users to follow each other
+- integerate search
