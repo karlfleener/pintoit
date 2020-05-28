@@ -51,6 +51,10 @@ Live Site: https://pintoit.herokuapp.com/
 - Users can edit/delete their own boards
 - Selecting a board shows all pins associated with it
 
+<div>
+  <img width="100%" src="/app/assets/images/readme_screenshots/create_edit_board.gif" alt="create pin gif">
+</div>
+
 ### Profile
 - Users can view/edit/delete their boards/pins
 
