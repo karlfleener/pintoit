@@ -32,10 +32,14 @@ Live Site: https://pintoit.herokuapp.com/
 * AWS photo storage
 
 ## Features
-
+ 
 ### User Authentication
 - Users must login/sign up to use platform
-- 
+- Demo login available to try out platform
+
+<div>
+  <img width="100%" src="/app/assets/images/readme_screenshots/session.gif" alt="create pin gif">
+</div>
 
 ### Pins
 - Users can create/view pins
