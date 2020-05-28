@@ -22,14 +22,15 @@ Live Site: https://pintoit.herokuapp.com/
 
 ## Technologies
 
-* React
-* Redux
-* Javascript
-* Ruby on Rails
-* HTML
-* CSS
-* Postgres
-* AWS photo storage
+- React
+- Redux
+- Javascript
+- Ruby on Rails
+- PostgreSQL
+- AWS photo storage
+- HTML
+- CSS
+- Git
 
 ## Features
  
@@ -62,12 +63,43 @@ Live Site: https://pintoit.herokuapp.com/
 ### Profile
 - Users can view/edit/delete their boards/pins
 
-
 <div>
   <img width="100%" src="/app/assets/images/readme_screenshots/profile.gif" alt="profile gif">
 </div>
 
 ## Code Highlights
+- The majority the forms on Pintoit are implemented using modals. The correct forms are rendered based on switch cases.
+```JavaScript
+function Modal({ modal, closeModal }) {
+  if (!modal) {
+    return null;
+  }
+  let component;
+  switch (modal) {
+    case 'edit-pin':
+      component = <PinEditFormContainer />
+      break;
+    case 'create-board':
+      component = <BoardCreateFormContainer />
+      break;
+    case 'edit-board':
+      component = <BoardEditFormContainer />
+      break;
+    default:
+      return null;
+  }
+
+  return (
+    <div className="modal-background" onClick={closeModal}>
+      <div className="modal-child" onClick={e => e.stopPropagation()}>
+        {component}
+      </div>
+    </div>
+  );
+}
+```
+
+
 
 ## Future Plans
 
