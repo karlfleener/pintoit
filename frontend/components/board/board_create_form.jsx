@@ -23,7 +23,10 @@ class BoardCreateForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createBoard(this.state)
-      .then(this.props.closeModal());
+      .then((action) => {
+        this.props.history.push(`/users/${action.board.creator_id}/boards/${action.board.id}`);
+        this.props.closeModal();
+      })
   }
 
   render() {

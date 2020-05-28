@@ -11,16 +11,19 @@ class BoardShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchBoard(this.props.boardId)
-    .then(action => {
-      return (
-        this.setState( action.board ))
-      })
+    // .then(action => {
+    //   return (
+    //     this.setState( action.board ))
+    //   })
       .then(() => this.props.fetchUser(this.props.userId));
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.userId !== this.props.userId) {
       this.props.fetchUser(this.props.match.params.userId)
+    }
+    if (Object.values(prevProps.board).length !== Object.values(this.props.board).length) {
+      this.props.fetchBoard(this.props.match.params.boardId)
     }
   }
 

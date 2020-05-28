@@ -42,15 +42,8 @@ Live Site: https://pintoit.herokuapp.com/
 - Users can edit/delete their own pins
 - Pins are organized by boards
 
-pin creation
 <div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/create_pin.gif" alt="create pin gif">
-</div>
-
-pin editing
-
-<div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/edit_pin.gif" alt="edit pin gif">
+  <img width="100%" src="/app/assets/images/readme_screenshots/create_edit_pin.gif" alt="create pin gif">
 </div>
 
 ### Boards
