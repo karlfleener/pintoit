@@ -43,11 +43,11 @@ Live Site: https://pintoit.herokuapp.com/
 - Pins are organized by boards
 
 <div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/pin_create.gif" alt="create pin gif">
+  <img width="100%" src="/app/assets/images/readme_screenshots/create_pin.gif" alt="create pin gif">
 </div>
 
 <div>
-  <img width="100%" src="/app/assets/images/readme_screenshots/pin_edit.gif" alt="edit pin gif">
+  <img width="100%" src="/app/assets/images/readme_screenshots/edit_pin.gif" alt="edit pin gif">
 </div>
 
 ### Boards
