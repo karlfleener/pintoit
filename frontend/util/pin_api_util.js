@@ -5,12 +5,12 @@ export const fetchAllPins = () => (
   })
 )
 
-export const fetchAllUsersPins = userId => (
-  $.ajax({
-    method: 'GET',
-    url: `/api/users/${userId}/pins`
-  })
-)
+// export const fetchAllUsersPins = userId => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `/api/users/${userId}/pins`
+//   })
+// )
 
 export const fetchPin = pinId => (
   $.ajax({
@@ -26,6 +26,16 @@ export const createPin = (pin) => (
     data: pin,
     contentType: false,
     processData: false,
+  })
+)
+
+export const repinPin = (pinId, boardId) => (
+  $.ajax({
+    method: 'POST',
+    url: `/api/pins/${pinId}/repin`,
+    data: { pinId, boardId }
+    // contentType: false,
+    // processData: false,
   })
 )
 

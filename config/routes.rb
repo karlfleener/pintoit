@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resources :pins, only: [:index]
     end
 
-    resources :pins, only: [:create, :edit, :update, :destroy, :index, :show]
+    resources :pins, only: [:create, :edit, :update, :destroy, :index, :show] do
+      post "/repin", to: "pins#repin"
+    end
     
   end
 

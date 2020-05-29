@@ -28,9 +28,9 @@ class PinCreateForm extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append('pin[title]', this.state.title);
-    formData.append('pin[description]', this.state.description)
-    formData.append('pin[board_id]', this.state.board_id)
-    formData.append('pin[errors]', this.state.errors)
+    formData.append('pin[description]', this.state.description);
+    formData.append('pin[board_id]', this.state.board_id);
+    formData.append('pin[errors]', this.state.errors);
     if (this.state.imageFile) {
       formData.append('pin[image]', this.state.imageFile)
     }

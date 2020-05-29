@@ -29,15 +29,19 @@ export const fetchAllPins = () => dispatch => PinApiUtil.fetchAllPins()
   .then(pins => dispatch(receiveAllPins(pins)),
     err => dispatch(receivePinErrors(err.responseJSON)));
 
-export const fetchAllUsersPins = (userId) => dispatch => PinApiUtil.fetchAllUsersPins(userId)
-  .then(pins => dispatch(receiveAllPins(pins)),
-    err => dipsatch(receivePinErrors(err.responseJSON)))
+// export const fetchAllUsersPins = (userId) => dispatch => PinApiUtil.fetchAllUsersPins(userId)
+//   .then(pins => dispatch(receiveAllPins(pins)),
+//     err => dipsatch(receivePinErrors(err.responseJSON)))
 
 export const fetchPin = pinId => dispatch => PinApiUtil.fetchPin(pinId)
   .then(pin => dispatch(receivePin(pin)),
     err => dispatch(receivePinErrors(err.responseJSON)));
 
 export const createPin = pin => dispatch => PinApiUtil.createPin(pin)
+  .then(pin => dispatch(receivePin(pin)),
+    err => dispatch(receivePinErrors(err.responseJSON)));
+
+export const repinPin = (pinId, boardId) => dispatch => PinApiUtil.repinPin(pinId, boardId)
   .then(pin => dispatch(receivePin(pin)),
     err => dispatch(receivePinErrors(err.responseJSON)));
 

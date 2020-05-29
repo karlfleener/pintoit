@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store.js';
 // import {signup, login, logout} from './actions/session_actions';
-import { fetchAllPins, fetchPin, createPin, updatePin, deletePin } from './util/pin_api_util';
+import { fetchAllPins, fetchPin, createPin, repinPin, updatePin, deletePin } from './util/pin_api_util';
 import { fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard } from './util/board_api_util';
 import { fetchAllUsers, fetchUser } from './util/users_api_util';
 
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchAllPins = fetchAllPins;
   window.fetchPin = fetchPin;
   window.createPin = createPin;
+  window.repinPin = repinPin;
   window.updatePin = updatePin;
   window.deletePin = deletePin;
   window.fetchAllBoards = fetchAllBoards;

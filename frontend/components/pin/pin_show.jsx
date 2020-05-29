@@ -57,17 +57,9 @@ class PinShow extends React.Component {
       //     formData.append('pin[image]', this.state.imageFile)
       //   }
       
-      const formData = new FormData();
-      formData.append('pin[title]', this.state.pin.title);
-      formData.append('pin[description]', this.state.pin.description)
-      formData.append('pin[creator_id]', this.props.currentUser.id)
-      formData.append('pin[board_id]', board.id)
-      formData.append('pin[imageFile]', this.state.pin.image)
-      formData.append('pin[imageUrl]', this.state.pin.imageUrl)
-      formData.append('pin[errors]', this.state.pin.errors)
-      
-      this.props.createPin(formData)
-        .then(() => this.props.history.goBack())
+      // debugger
+      this.props.repinPin(this.state.pin.id, board.id)
+      .then((action) => this.props.history.push(`/pins/${action.pin.id}`))
     }
 
   render() {
