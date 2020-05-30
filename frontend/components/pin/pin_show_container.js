@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchPin, createPin, repinPin } from '../../actions/pin_actions';
+import { fetchPin, repinPin } from '../../actions/pin_actions';
 import { fetchBoard } from '../../actions/board_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions'
@@ -16,7 +16,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPin: pinId => dispatch(fetchPin(pinId)),
-  createPin: pin => dispatch(createPin(pin)),
   repinPin: (pinId, boardId) => dispatch(repinPin(pinId, boardId)),
   fetchBoard: boardId => dispatch(fetchBoard(boardId)),
   fetchUser: userId => dispatch(fetchUser(userId)),

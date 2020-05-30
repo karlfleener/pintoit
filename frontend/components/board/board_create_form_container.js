@@ -11,12 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  // fetchBoard: boardId => dispatch(fetchBoard(boardId)),
-  // updateBoard: board => dispatch(updateBoard(board)),
   createBoard: board => dispatch(createBoard(board)),
-  // deleteBoard: boardId => dispatch(deleteBoard(boardId)),
-  // fetchPin: pinId => dispatch(fetchPin(pinId)),
-  // deletePin: pinId => dispatch(deletePin(pinId)),
   closeModal: () => dispatch(closeModal()),
 })
 

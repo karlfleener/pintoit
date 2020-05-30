@@ -11,11 +11,7 @@ class BoardShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchBoard(this.props.boardId)
-    // .then(action => {
-    //   return (
-    //     this.setState( action.board ))
-    //   })
-      .then(() => this.props.fetchUser(this.props.userId));
+    .then(() => this.props.fetchUser(this.props.userId));
   }
 
   componentDidUpdate(prevProps, prevState) {

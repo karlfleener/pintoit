@@ -4,13 +4,12 @@ import { Link, withRouter } from 'react-router-dom'
 class PinShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = !this.props.pin || !this.props.board ? 
-    { pin: '', 
-    board: '' } : 
-    { pin: this.props.pin, 
-      board: this.props.board };
+    this.state = !this.props.pin ? 
+    { pin: '' } : 
+    { pin: this.props.pin, board: this.props.board };
 
     this.handleSave = this.handleSave.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount() {
@@ -21,18 +20,12 @@ class PinShow extends React.Component {
     .then(() => this.props.fetchUser(this.state.pin.creator_id))
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.board.id !== this.props.pin.board_id) {
-      this.props.fetchBoard(this.props.pin.board_id)
-        .then(action => this.setState({ board: action.board }))
-    }
-  }
-
   handleSelect(e) {
     e.preventDefault();
     let selected = document.getElementsByClassName("show-pin-select")[0];
     let board = e.currentTarget;
     selected.innerText = board.innerText;
+    
   }
 
   boardFromTitle(boardTitle) {
@@ -45,22 +38,21 @@ class PinShow extends React.Component {
 
   handleSave(e) {
     e.preventDefault();
-    // let pin = Object.create(this.state.pin)
-    let boardTitle = document.getElementsByClassName("show-pin-select")[0].innerText;
-    let board = this.boardFromTitle(boardTitle);
-    // pin.board_id = board.id;
-    // pin.creator_id = board.creator_id;
-    // const newPin = Object.create(pin)
+    let board = this.boardFromTitle(document.getElementsByClassName("show-pin-select")[0].innerText);
+    this.setState({ board: board })
+    const formData = new FormData();
+    formData.append('pin[title]', this.props.pin.title);
+    formData.append('pin[description]', this.props.pin.description);
+    formData.append('pin[board_id]', board.id);
 
-    // this.props.history.goBack();
-    //  if (this.state.imageFile) {
-      //     formData.append('pin[image]', this.state.imageFile)
-      //   }
-      
-      // debugger
-      this.props.repinPin(this.state.pin.id, board.id)
-      .then((action) => this.props.history.push(`/pins/${action.pin.id}`))
-    }
+    this.props.repinPin(this.state.pin.id, formData)
+    .then(action => {
+      this.props.history.push(`/pins/${action.pin.id}`)
+      this.props.fetchPin(action.pin.id);
+      this.props.fetchUser(action.pin.creator_id);
+      this.props.fetchBoard(action.pin.board_id)
+    })
+  }
 
   render() {
 
@@ -80,13 +72,14 @@ class PinShow extends React.Component {
       return <div className="show-pin-select-board-title" onClick={this.handleSelect} key={Object.values(board)[0].id}>{Object.values(board)[0].title}</div>;
     })
     
+
     return (
       <div>
-        <div onClick={() => this.props.history.goBack()}><i id='show-pin-arrow' className="fas fa-arrow-left"></i></div>
+        <div onClick={() => this.props.history.go(-2)}><i id='show-pin-arrow' className="fas fa-arrow-left"></i></div>
         <div className="show-pin-container">
           <div className="show-pin-box">
             <div className='show-pin-image-container'>
-              <img src={this.state.pin.imageUrl} alt={this.state.title}/>
+              <img src={this.props.pin.imageUrl} alt={this.props.pin.title}/>
             </div>
 
             <div className='show-pin-info-container'>
@@ -111,7 +104,7 @@ class PinShow extends React.Component {
               <div className="show-pin-info">
                 <div className='show-pin-title'>{this.props.pin.title}</div>
                 <div className='show-pin-description'>{this.props.pin.description}</div>
-                <div className='show-pin-board'><strong>{user.email.slice(0, user.email.indexOf('@'))}</strong> saved to <strong>{this.state.board.title}</strong></div>
+                <div className='show-pin-board'><strong>{user.email.slice(0, user.email.indexOf('@'))}</strong> saved to <strong>{this.props.board.title}</strong></div>
               </div>
             </div>
           </div>

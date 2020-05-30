@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/user_actions';
-import { fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard } from '../../actions/board_actions';
+import { fetchAllBoards } from '../../actions/board_actions';
 import { openModal } from '../../actions/modal_actions';
 import ProfileBoardIndex from './board_index';
 
@@ -16,10 +16,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchUser: userId => dispatch(fetchUser(userId)),
   fetchAllBoards:() => dispatch(fetchAllBoards()),
-  fetchBoard: boardId => dispatch(fetchBoard(boardId)),
-  createBoard: board => dispatch(createBoard(board)),
-  updateBoard: board => dispatch(updateBoard(board)),
-  deleteBoard: boardId => dispatch(deleteBoard(boardId)),
   openModal: modal => dispatch(openModal(modal)),
 })
 

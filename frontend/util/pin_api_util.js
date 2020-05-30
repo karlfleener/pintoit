@@ -29,13 +29,13 @@ export const createPin = (pin) => (
   })
 )
 
-export const repinPin = (pinId, boardId) => (
+export const repinPin = (pinId, formData) => (
   $.ajax({
     method: 'POST',
     url: `/api/pins/${pinId}/repin`,
-    data: { pinId, boardId }
-    // contentType: false,
-    // processData: false,
+    data: formData, 
+    contentType: false,
+    processData: false,
   })
 )
 
