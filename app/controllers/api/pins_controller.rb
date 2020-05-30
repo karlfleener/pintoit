@@ -1,4 +1,3 @@
-require 'byebug'
 require 'open-uri'
 
 class Api::PinsController < ApplicationController
