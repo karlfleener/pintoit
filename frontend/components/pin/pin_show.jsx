@@ -4,9 +4,6 @@ import { Link, withRouter } from 'react-router-dom'
 class PinShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = !this.props.pin ? 
-    { pin: '' } : 
-    { pin: this.props.pin, board: this.props.board };
 
     this.handleSave = this.handleSave.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -14,10 +11,20 @@ class PinShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPin(this.props.match.params.pinId)
-    .then(action => this.setState( {pin: action.pin} ))
-    .then(() => this.props.fetchBoard(this.state.pin.board_id))
-    .then(action => this.setState({ board: action.board }))
-    .then(() => this.props.fetchUser(this.state.pin.creator_id))
+    .then(action => {
+        this.props.fetchBoard(action.pin.board_id)
+        this.props.fetchUser(action.pin.creator_id)
+    })
+  }
+  
+  componentDidUpdate() {
+    if (!this.props.pin) {
+      this.props.fetchPin(this.props.match.params.pinId)
+      .then(action => {
+          this.props.fetchBoard(action.pin.board_id)
+          this.props.fetchUser(action.pin.creator_id)
+      })
+    }
   }
 
   handleSelect(e) {
@@ -39,13 +46,13 @@ class PinShow extends React.Component {
   handleSave(e) {
     e.preventDefault();
     let board = this.boardFromTitle(document.getElementsByClassName("show-pin-select")[0].innerText);
-    this.setState({ board: board })
+
     const formData = new FormData();
     formData.append('pin[title]', this.props.pin.title);
     formData.append('pin[description]', this.props.pin.description);
     formData.append('pin[board_id]', board.id);
 
-    this.props.repinPin(this.state.pin.id, formData)
+    this.props.repinPin(this.props.pin.id, formData)
     .then(action => {
       this.props.history.push(`/pins/${action.pin.id}`)
       this.props.fetchPin(action.pin.id);
@@ -75,7 +82,7 @@ class PinShow extends React.Component {
 
     return (
       <div>
-        <div onClick={() => this.props.history.go(-2)}><i id='show-pin-arrow' className="fas fa-arrow-left"></i></div>
+        <div onClick={() => this.props.history.goBack()}><i id='show-pin-arrow' className="fas fa-arrow-left"></i></div>
         <div className="show-pin-container">
           <div className="show-pin-box">
             <div className='show-pin-image-container'>

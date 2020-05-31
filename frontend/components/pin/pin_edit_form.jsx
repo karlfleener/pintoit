@@ -21,7 +21,8 @@ class PinEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updatePin(this.state)
+    this.props.updatePin(this.state);
+    this.props.fetchBoard(this.state.board_id)
     .then(this.props.closeModal)
   }
 
