@@ -20,12 +20,12 @@ const NavBar = ({ currentUser, logout }) => {
         </li>
         <li className='nav-item notification'><i className="fas fa-bell"></i></li>  
         <li className='nav-item inbox'><i className="fas fa-comment-dots"></i></li>      
-        <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}> */}
+      <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}> */}
         <div>
-          <a href='https://www.linkedin.com/in/karlfleener/' target="_blank" className="nav-item"><i className="fab fa-linkedin about"></i>LinkedIn</a>
-          <a href='https://angel.co/u/karlfleener' target="_blank" className="nav-item"><i className="fab fa-angellist about"></i>AngelList</a>
-          <a href='https://github.com/karlfleener' target="_blank" className="nav-item"><i className="fab fa-github about"></i>GitHub</a>
-          <a href='https://karlfleener.github.io/' target="_blank" className="nav-item"><i className="fas fa-user about"></i>Portfolio</a>
+          <a href='https://www.linkedin.com/in/karlfleener/' target="_blank" className="nav-item"><i className="fab fa-linkedin about"></i></a>
+          <a href='https://angel.co/u/karlfleener' target="_blank" className="nav-item"><i className="fab fa-angellist about"></i></a>
+          <a href='https://github.com/karlfleener' target="_blank" className="nav-item"><i className="fab fa-github about"></i></a>
+          <a href='https://karlfleener.github.io/' target="_blank" className="nav-item"><i className="fas fa-user about"></i></a>
         </div>
         <div>
           <Link to="/"><div className="nav-item">Home</div></Link>

@@ -15,10 +15,6 @@
     display: block;
     height: auto;
   }
-
-  .about {
-    display: block;
-  }
 }
 
 .nav-menu > div {
@@ -101,7 +97,6 @@
 
 .about {
   color: #333333;
-  margin-right: 4px;
 }
 
 /* .logout {
