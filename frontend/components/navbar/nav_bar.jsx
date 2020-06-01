@@ -22,9 +22,15 @@ const NavBar = ({ currentUser, logout }) => {
         <li className='nav-item inbox'><i className="fas fa-comment-dots"></i></li>      
         <Link to={`/${currentUser.email.slice(0, currentUser.email.indexOf('@'))}`}> */}
         <div>
-          <Link to="/"><div className="nav-item home">Home</div></Link>
-          <Link to={`/users/${currentUser.id}/boards`}><div className="nav-item profile">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
-          <button className='nav-item logout-button' onClick={logout}>Log out</button>
+          <a href='https://www.linkedin.com/in/karlfleener/' target="_blank" className="nav-item"><i className="fab fa-linkedin about"></i>LinkedIn</a>
+          <a href='https://angel.co/u/karlfleener' target="_blank" className="nav-item"><i className="fab fa-angellist about"></i>AngelList</a>
+          <a href='https://github.com/karlfleener' target="_blank" className="nav-item"><i className="fab fa-github about"></i>GitHub</a>
+          <a href='https://karlfleener.github.io/' target="_blank" className="nav-item"><i className="fas fa-user about"></i>Portfolio</a>
+        </div>
+        <div>
+          <Link to="/"><div className="nav-item">Home</div></Link>
+          <Link to={`/users/${currentUser.id}/boards`}><div className="nav-item">{currentUser.email.slice(0, currentUser.email.indexOf('@'))}</div></Link> 
+          <div className='nav-item' onClick={logout}>Log out</div>
         </div>   
       </nav> 
       <div className="create-pin-dropdown">

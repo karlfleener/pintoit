@@ -10,10 +10,22 @@
   z-index: 1;
 }
 
-.nav-menu div{
+@media screen and (max-width: 450px) {
+  .nav-menu {
+    display: block;
+    height: auto;
+  }
+
+  .about {
+    display: block;
+  }
+}
+
+.nav-menu > div {
   display: flex;
   justify-content: space-around;
-  padding: 18px;
+  align-items: center;
+  margin: 18px;
 }
 
 .nav-logo {
@@ -21,6 +33,18 @@
   height: 48px;
   margin-bottom: 6px
 }
+
+.nav-item  {
+  padding: 16px;
+  border-radius: 50px;
+  background-color: white;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+} 
 
 .search-bar {
   position: relative;
@@ -69,24 +93,18 @@
   color: #aaa;
 }
 
-.nav-item  {
-  padding: 16px;
-  border-radius: 50px;
-  font-weight: 700;
-  background-color: white;
-}
-
-.nav-item:hover {
-  filter: brightness(95%);
-  cursor: pointer;
-} 
-
-.fas {
+.fas,
+.svg-inline--fa {
   font-size: 24px;
   color: #8e8e8e;
 }
 
-.logout-button {
+.about {
+  color: #333333;
+  margin-right: 4px;
+}
+
+/* .logout {
   font-size: 16px; 
   font-weight: 700;
   border: 0;
@@ -94,7 +112,7 @@
   background-color: white;
   outline: none;
   white-space: nowrap;
-}
+} */
 
  /* .create-pin-button {
   position: fixed;
@@ -151,11 +169,6 @@ filter: brightness(90%);
   cursor: pointer;
 }
 
-.svg-inline--fa {
-  font-size: 24px;
-  color: #8e8e8e;
-}
-
 .create-pin-content div {
   display: flex;
   justify-content: space-between;
@@ -176,3 +189,4 @@ filter: brightness(90%);
 .create-pin-dropdown:hover .create-pin-btn {
   filter: brightness(95%)
 }
+

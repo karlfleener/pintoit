@@ -33,12 +33,14 @@
   .pin-index-container,
   .profile-pin-index-container {
     column-count: 1;
+    top: 233px;
   }
 }
-@media screen and (min-width:600px){
+@media screen and (min-width:500px){
   .pin-index-container,
   .profile-pin-index-container {
     column-count: 2;
+    top: 74px
   }
 }
 
