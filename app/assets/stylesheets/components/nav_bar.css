@@ -1,16 +1,31 @@
 .nav-menu {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   position: fixed;
-  top: 0;
   width: 100vw;
   height: 74px;
   background-color: white;
   z-index: 1;
 }
 
-@media screen and (max-width: 450px) {
+.nav-logo {
+  justify-self: start;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+}
+
+.about-links {
+  justify-self: center;
+}
+
+.nav-links {
+  justify-self: end;
+}
+@media screen and (max-width: 500px) {
   .nav-menu {
     display: block;
     height: auto;
@@ -21,20 +36,20 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 18px;
+  margin: 0 18px 0 18px;
 }
 
-.nav-logo {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 6px
-}
+
 
 .nav-item  {
   padding: 16px;
   border-radius: 50px;
   background-color: white;
   white-space: nowrap;
+}
+
+#about {
+  color: #333333;
 }
 
 .nav-item:hover {
@@ -95,9 +110,7 @@
   color: #8e8e8e;
 }
 
-.about {
-  color: #333333;
-}
+
 
 /* .logout {
   font-size: 16px; 
@@ -108,23 +121,6 @@
   outline: none;
   white-space: nowrap;
 } */
-
- /* .create-pin-button {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  padding: 6px 8px 6px 8px;
-  border-radius: 24px;
-  outline: none;
-  border: 0;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
-  z-index: 5;
-} */
-
-/* .create-pin-button:hover {
-filter: brightness(90%);
-}  */
 
 .create-pin-btn {
   position: fixed;

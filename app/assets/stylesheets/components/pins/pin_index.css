@@ -31,9 +31,10 @@
 
 @media screen and (min-width:0){
   .pin-index-container,
-  .profile-pin-index-container {
+  .profile-pin-index-container,
+  .profile-container {
     column-count: 1;
-    top: 233px;
+    top: 155px;
   }
 }
 @media screen and (min-width:500px){
